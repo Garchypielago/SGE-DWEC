@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../VSCODE"
+		},
+		{
+			"path": "../../../../Data_Science_SlayTheSpire/WebApp"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "VSCODE",
+		"workbench.colorTheme": "Darker than One Dark Pro (Dark Editor)"
+	}
+}

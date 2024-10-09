@@ -31,15 +31,15 @@ function validarInput(input) {
     if (input.value > 9) input.value = "";
     
     // Eliminar cualquier valor que no esté entre 1 y 9
-    // if (input.value.length > 1 || !/^[1-9]$/.test(input.value)) {
-    //     input.value = input.value.slice(0, 1);
-    // }
+    if (input.value.length > 1 || !/^[1-9]$/.test(input.value)) {
+        input.value = input.value.slice(0, 1);
+    }
 
 }
 
 function validarCuadrante(id){
     const cuadrante = document.getElementById(`${id}`);
-    const inputs = cuadrante.querySelectorAll("p");
+    const inputs = cuadrante.querySelectorAll("input[type='number']");
     
     let repetidos = false;
 
@@ -55,7 +55,7 @@ function validarCuadrante(id){
 
 function validarFila(fila){
     const tabla = document.getElementById("principal");
-    const inputs = tabla.querySelectorAll(`p[class='${fila}'`);
+    const inputs = tabla.querySelectorAll(`input[class='${fila}'`);
     
     let repetidos = false;
 
@@ -71,7 +71,7 @@ function validarFila(fila){
 
 function validarColumna(columna){
     const tabla = document.getElementById("principal");
-    const inputs = tabla.querySelectorAll(`p[class='${columna}'`);
+    const inputs = tabla.querySelectorAll(`input[class='${columna}'`);
     
     let repetidos = false;
 

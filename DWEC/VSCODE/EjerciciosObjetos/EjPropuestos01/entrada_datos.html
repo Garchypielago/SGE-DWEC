@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedir datos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div id="textos">
+        <br>
+        <div class="input-group input-group-lg">
+            <span class="input-group-text" id="inputGroup-sizing-lg">Tu texto</span>
+            <input id="textoPrincipal" type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-lg" placeholder="Escribe aqui tu texto principal...">
+        </div>
+        <br>
+        <div class="input-group input-group-lg">
+            <span class="input-group-text" id="inputGroup-sizing-lg">Buscar</span>
+            <input id="textoBuscar" type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-lg" placeholder="Escribe aqui que buscar...">
+        </div>
+        <br>
+        <div class="input-group input-group-lg">
+            <span class="input-group-text" id="inputGroup-sizing-lg">Reemplazar</span>
+            <input id="textoReemplazar" type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-lg" placeholder="Escribe aqui que reemplazar...">
+        </div>
+        <div class="container mt-5">
+            <div class="card" style="width: 80%;">
+                <div class="card-body">
+                    <p class="card-text" id="textoNuevo">
+                        Tu texto aparecerá aqui...
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <br>
+        <div id="buttons" class="d-grid gap-2">
+            <button class="btn btn-primary" type="button" onclick="buscarPrimera()">Buscar la primera ocurrencia y sustituir</button>
+            <button class="btn btn-primary" type="button" onclick="buscarTodas()">Buscar todas las ocurrencias y sustituirlas</button>
+            <button class="btn btn-primary" type="button" onclick="contar()">Lo anterior y contar las ocurrencias sustituidas</button>
+            <button class="btn btn-primary" type="button" onclick="preguntar()">Preguntar en cada ocurrencia si sustituye</button>
+
+        </div>
+</body>
+<script src="entrada_datos.js"></script>
+
+</html>

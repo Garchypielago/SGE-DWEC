@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios JavaScript</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .exercise-container {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        .random-color {
+            width: 150px;
+            height: 150px;
+            background-color: lightblue;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body class="container">
+    <h1 class="text-center my-5">Ejercicios de JavaScript</h1>
+
+    <!-- Ejercicio 1 -->
+    <div class="exercise-container">
+        <h2>1. Reemplazar palabras en un texto</h2>
+        <textarea id="textarea-ej1" class="form-control" rows="4" placeholder="Escribe un texto"></textarea>
+        <input type="text" id="buscar-ej1" class="form-control mt-2" placeholder="Palabra a buscar">
+        <input type="text" id="reemplazar-ej1" class="form-control mt-2" placeholder="Palabra para reemplazar">
+        <button class="btn btn-primary mt-2" onclick="reemplazarPrimera()">Reemplazar primera ocurrencia</button>
+        <button class="btn btn-primary mt-2" onclick="reemplazarTodas()">Reemplazar todas las ocurrencias</button>
+        <button class="btn btn-primary mt-2" onclick="reemplazarConConteo()">Reemplazar y contar</button>
+        <button class="btn btn-primary mt-2" onclick="reemplazarInteractivo()">Reemplazo interactivo</button>
+        <p id="resultado-ej1" class="mt-3"></p>
+    </div>
+
+    <!-- Ejercicio 2 -->
+    <div class="exercise-container">
+        <h2>2. Cambiar formato de una palabra</h2>
+        <input type="text" id="buscar-formato-ej2" class="form-control mt-2" placeholder="Palabra a formatear">
+        <select id="formato-ej2" class="form-control mt-2">
+            <option value="B">Negrita</option>
+            <option value="b">Parpadeante</option>
+            <option value="G">Grande</option>
+            <option value="M">Mayúsculas</option>
+            <option value="n">Minúsculas</option>
+            <option value="s">Pequeña</option>
+        </select>
+        <button class="btn btn-primary mt-2" onclick="cambiarFormato()">Cambiar Formato</button>
+        <p id="resultado-ej2" class="mt-3"></p>
+    </div>
+
+    <!-- Ejercicio 3 -->
+    <div class="exercise-container">
+        <h2>3. Calcular el día de la semana</h2>
+        <input type="number" id="dia-ej3" class="form-control" placeholder="Día">
+        <input type="number" id="mes-ej3" class="form-control mt-2" placeholder="Mes">
+        <input type="number" id="año-ej3" class="form-control mt-2" placeholder="Año">
+        <button class="btn btn-primary mt-2" onclick="calcularDiaSemana()">Calcular</button>
+        <p id="resultado-ej3" class="mt-3"></p>
+    </div>
+
+    <!-- Ejercicio 4 -->
+    <div class="exercise-container">
+        <h2>4. Hora en diferentes ciudades</h2>
+        <input type="time" id="hora-ej4" class="form-control">
+        <button class="btn btn-primary mt-2" onclick="calcularHoras()">Calcular horas</button>
+        <p id="resultado-ej4" class="mt-3"></p>
+    </div>
+
+    <!-- Ejercicio 5 -->
+    <div class="exercise-container">
+        <h2>5. Identificar tipo de dato</h2>
+        <input type="text" id="input-ej5" class="form-control" placeholder="Escribe algo">
+        <button class="btn btn-primary mt-2" onclick="identificarTipo()">Identificar tipo</button>
+        <p id="resultado-ej5" class="mt-3"></p>
+    </div>
+
+    <!-- Ejercicio 6 -->
+    <div class="exercise-container">
+        <h2>6. Temporizador cuenta atrás</h2>
+        <input type="number" id="temporizador-ej6" class="form-control" placeholder="Número inicial">
+        <button class="btn btn-primary mt-2" onclick="iniciarTemporizador()">Iniciar Temporizador</button>
+        <p id="resultado-ej6" class="mt-3"></p>
+    </div>
+
+    <!-- Ejercicio 7 -->
+    <div class="exercise-container">
+        <h2>7. Cuadrado con color aleatorio</h2>
+        <div class="random-color" id="cuadrado-ej7"></div>
+        <button class="btn btn-primary mt-2" onclick="iniciarColores()">Iniciar Cambio de Color</button>
+        <button class="btn btn-danger mt-2" onclick="detenerColores()">Detener Cambio de Color</button>
+    </div>
+
+    <!-- Ejercicio 8 -->
+    <div class="exercise-container">
+        <h2>8. Números para sorteo de Bingo</h2>
+        <button class="btn btn-primary mt-2" onclick="iniciarBingo()">Iniciar Bingo</button>
+        <p id="resultado-ej8" class="mt-3"></p>
+    </div>
+
+    <!-- Ejercicio 9 y 10 -->
+    <div class="exercise-container">
+        <h2>9 y 10. Sorteo de Nombres</h2>
+        <input type="text" id="nombre-ej9" class="form-control" placeholder="Introduce un nombre">
+        <button class="btn btn-primary mt-2" onclick="agregarNombre()">Agregar Nombre</button>
+        <button class="btn btn-success mt-2" onclick="sorteoNombres()">Realizar Sorteo</button>
+        <p id="resultado-ej9" class="mt-3"></p>
+    </div>
+
+    <script>
+        // Ejercicio 1
+        function reemplazarPrimera() {
+            let texto = document.getElementById('textarea-ej1').value;
+            let buscar = document.getElementById('buscar-ej1').value;
+            let reemplazar = document.getElementById('reemplazar-ej1').value;
+            let resultado = texto.replace(buscar, reemplazar);
+            document.getElementById('resultado-ej1').innerText = resultado;
+        }
+
+        function reemplazarTodas() {
+            let texto = document.getElementById('textarea-ej1').value;
+            let buscar = document.getElementById('buscar-ej1').value;
+            let reemplazar = document.getElementById('reemplazar-ej1').value;
+            let resultado = texto.replaceAll(buscar, reemplazar);
+            document.getElementById('resultado-ej1').innerText = resultado;
+        }
+
+        function reemplazarConConteo() {
+            let texto = document.getElementById('textarea-ej1').value;
+            let buscar = document.getElementById('buscar-ej1').value;
+            let reemplazar = document.getElementById('reemplazar-ej1').value;
+            let ocurrencias = texto.split(buscar).length - 1;
+            let resultado = texto.replaceAll(buscar, reemplazar);
+            document.getElementById('resultado-ej1').innerText = `${resultado}\nOcurrencias: ${ocurrencias}`;
+        }
+
+        function reemplazarInteractivo() {
+            let texto = document.getElementById('textarea-ej1').value;
+            let buscar = document.getElementById('buscar-ej1').value;
+            let reemplazar = document.getElementById('reemplazar-ej1').value;
+            let nuevoTexto = '';
+            let partes = texto.split(buscar);
+            partes.forEach((parte, index) => {
+                if (index < partes.length - 1) {
+                    let confirmar = confirm(`¿Deseas reemplazar "${buscar}" en esta parte?`);
+                    if (confirmar) {
+                        nuevoTexto += parte + reemplazar;
+                    } else {
+                        nuevoTexto += parte + buscar;
+                    }
+                } else {
+                    nuevoTexto += parte;
+                }
+            });
+            document.getElementById('resultado-ej1').innerText = nuevoTexto;
+        }
+
+        // Ejercicio 2
+        function cambiarFormato() {
+            let texto = document.getElementById('textarea-ej1').value;
+            let palabra = document.getElementById('buscar-formato-ej2').value;
+            let formato = document.getElementById('formato-ej2').value;
+            let nuevoTexto = '';
+
+            if (formato === 'B') {
+                nuevoTexto = texto.replace(new RegExp(palabra, 'g'), `<b>${palabra}</b>`);
+            } else if (formato === 'b') {
+                nuevoTexto = texto.replace(new RegExp(palabra, 'g'), `<span style="animation: blink 1s step-end infinite;">${palabra}</span>`);
+            } else if (formato === 'G') {
+                nuevoTexto = texto.replace(new RegExp(palabra, 'g'), `<span style="font-size: 2rem;">${palabra}</span>`);
+            } else if (formato === 'M') {
+                nuevoTexto = texto.replace(new RegExp(palabra, 'g'), palabra.toUpperCase());
+            } else if (formato === 'n') {
+                nuevoTexto = texto.replace(new RegExp(palabra, 'g'), palabra.toLowerCase());
+            } else if (formato === 's') {
+                nuevoTexto = texto.replace(new RegExp(palabra, 'g'), `<small>${palabra}</small>`);
+            }
+            document.getElementById('resultado-ej2').innerHTML = nuevoTexto;
+        }
+
+        // Ejercicio 3
+        function calcularDiaSemana() {
+            let dia = parseInt(document.getElementById('dia-ej3').value);
+            let mes = parseInt(document.getElementById('mes-ej3').value) - 1;
+            let año = parseInt(document.getElementById('año-ej3').value);
+            let fecha = new Date(año, mes, dia);
+            let opciones = { weekday: 'long' };
+            let diaSemana = fecha.toLocaleDateString('es-ES', opciones);
+            document.getElementById('resultado-ej3').innerText = `Ese día es: ${diaSemana}`;
+        }
+
+        // Ejercicio 4
+        function calcularHoras() {
+            let horaMadrid = document.getElementById('hora-ej4').value;
+            let [horas, minutos] = horaMadrid.split(':').map(Number);
+            let fecha = new Date();
+            fecha.setHours(horas);
+            fecha.setMinutes(minutos);
+
+            let madrid = fecha;
+            let pekin = new Date(fecha.getTime() + 6 * 60 * 60 * 1000);
+            let nuevaYork = new Date(fecha.getTime() - 6 * 60 * 60 * 1000);
+            let bogota = new Date(fecha.getTime() - 7 * 60 * 60 * 1000);
+            let sydney = new Date(fecha.getTime() + 10 * 60 * 60 * 1000);
+
+            document.getElementById('resultado-ej4').innerHTML = `
+                <b>Madrid:</b> ${madrid.getHours()}:${madrid.getMinutes()}<br>
+                <b>Pekín:</b> ${pekin.getHours()}:${pekin.getMinutes()}<br>
+                <b>Nueva York:</b> ${nuevaYork.getHours()}:${nuevaYork.getMinutes()}<br>
+                <b>Bogotá:</b> ${bogota.getHours()}:${bogota.getMinutes()}<br>
+                <b>Sydney:</b> ${sydney.getHours()}:${sydney.getMinutes()}
+            `;
+        }
+
+        // Ejercicio 5
+        function identificarTipo() {
+            let input = document.getElementById('input-ej5').value;
+            if (!isNaN(parseFloat(input)) && isFinite(input)) {
+                if (input.indexOf('.') != -1) {
+                    document.getElementById('resultado-ej5').innerText = 'Es un número decimal';
+                } else {
+                    document.getElementById('resultado-ej5').innerText = 'Es un número entero';
+                }
+            } else if (!isNaN(BigInt(input))) {
+                document.getElementById('resultado-ej5').innerText = 'Es un entero largo';
+            } else if (typeof input === 'string') {
+                document.getElementById('resultado-ej5').innerText = 'Es una cadena de texto';
+            }
+        }
+
+        // Ejercicio 6
+        let temporizador;
+        function iniciarTemporizador() {
+            let numero = parseInt(document.getElementById('temporizador-ej6').value);
+            temporizador = setInterval(() => {
+                if (numero > 0) {
+                    document.getElementById('resultado-ej6').innerText = numero;
+                    numero--;
+                } else {
+                    clearInterval(temporizador);
+                    document.getElementById('resultado-ej6').innerText = '¡Fin!';
+                }
+            }, 1000);
+        }
+
+        // Ejercicio 7
+        let colorInterval;
+        function iniciarColores() {
+            colorInterval = setInterval(() => {
+                let randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+                document.getElementById('cuadrado-ej7').style.backgroundColor = randomColor;
+            }, 500);
+        }
+
+        function detenerColores() {
+            clearInterval(colorInterval);
+        }
+
+        // Ejercicio 8
+        let bingoInterval;
+        function iniciarBingo() {
+            bingoInterval = setInterval(() => {
+                let numeroBingo = Math.floor(Math.random() * 75) + 1;
+                document.getElementById('resultado-ej8').innerText = `Número: ${numeroBingo}`;
+            }, 3000);
+        }
+
+        // Ejercicio 9 y 10
+        let nombres = [];
+        function agregarNombre() {
+            let nombre = document.getElementById('nombre-ej9').value;
+            if (nombre && isNaN(nombre)) {
+                nombres.push(nombre);
+                document.getElementById('nombre-ej9').value = '';
+            } else if (!nombre) {
+                alert('Introduce un nombre válido o finaliza');
+            }
+        }
+
+        function sorteoNombres() {
+            if (nombres.length > 0) {
+                let indice = Math.floor(Math.random() * nombres.length);
+                document.getElementById('resultado-ej9').innerText = `Ganador: ${nombres[indice]}`;
+            } else {
+                alert('No hay nombres para el sorteo.');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -28,10 +28,3 @@ function explotar() {
     contador = 10;
 }
 
-function cancelar() {
-    clearInterval(intervalo);
-    intervalo= null;
-    contador = 10;
-    marcador.innerText = "";
-}
-

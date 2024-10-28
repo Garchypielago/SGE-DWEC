@@ -130,7 +130,7 @@ function buscarLlave(){
 }
 
 function validarRespuesta(respuesta){
-    if (respuesta.length <= 5){
+    if (respuesta.length > 5){
         return false;
     }
     return true;

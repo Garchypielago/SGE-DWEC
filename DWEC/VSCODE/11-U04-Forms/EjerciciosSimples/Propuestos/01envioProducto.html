@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Envío de Producto</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="01envioProducto.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2>Formulario de Envío a Tienda</h2>
+        <form id="productForm" onsubmit="return handleSubmit()">
+            <!-- Identificador del producto -->
+            <div class="form-group">
+                <label for="productId">Identificador del Producto (1000-2000):</label>
+                <input type="number" class="form-control" id="productId" name="productId" min="1000" max="2000"
+                    placeholder="1500">
+            </div>
+
+            <!-- Nombre del producto -->
+            <div class="form-group">
+                <label for="productName">Nombre del Producto:</label>
+                <input type="text" class="form-control" id="productName" name="productName" placeholder="Nombre">
+            </div>
+
+            <!-- Descripción del producto -->
+            <div class="form-group">
+                <label for="productDescription">Descripción del Producto:</label>
+                <textarea class="form-control" id="productDescription" name="productDescription" rows="4"
+                    placeholder="Descripción del producto aquí.."></textarea>
+            </div>
+
+            <!-- Clave secreta -->
+            <div class="form-group">
+                <label for="productKey">Clave Secreta:</label>
+                <input type="password" class="form-control" id="productKey" name="productKey" placeholder="Password">
+            </div>
+
+            <!-- Fecha del envío -->
+            <div class="form-group">
+                <label for="shippingDate">Fecha de Envío:</label>
+                <input type="date" class="form-control" id="shippingDate" name="shippingDate">
+            </div>
+
+            <!-- Categoría del producto -->
+            <div class="form-group">
+                <label for="productCategory">Categoría del Producto:</label>
+                <select class="form-control" id="productCategory" name="productCategory">
+                    <option selected hidden>Selecciona categoría</option>
+                    <option value="electrónica">Electrónica</option>
+                    <option value="ropa">Ropa</option>
+                    <option value="hogar">Hogar</option>
+                    <option value="juguetes">Juguetes</option>
+                </select>
+            </div>
+
+            <!-- Tienda -->
+            <div class="form-group">
+                <label for="store">Tienda:</label><br>
+                <input type="radio" id="store1" name="store" value="store1" checked> Tienda 1
+                <input type="radio" id="store2" name="store" value="store2"> Tienda 2
+                <input type="radio" id="store3" name="store" value="store3"> Tienda 3
+                <input type="radio" id="store4" name="store" value="store4"> Tienda 4
+            </div>
+
+            <!-- Dirección y código postal (ocultos) -->
+            <input type="hidden" id="storeAddress" name="storeAddress" value="Dirección Tienda 1">
+            <input type="hidden" id="storePostalCode" name="storePostalCode" value="28001">
+
+            <!-- Accesorios adicionales -->
+            <div class="form-group">
+                <label>Accesorios Adicionales:</label><br>
+                <input type="checkbox" id="accessory1" name="accessory" value="accesorio1"> Accesorio 1
+                <input type="checkbox" id="accessory2" name="accessory" value="accesorio2"> Accesorio 2
+                <input type="checkbox" id="accessory3" name="accessory" value="accesorio3"> Accesorio 3
+                <input type="checkbox" id="accessory4" name="accessory" value="accesorio4"> Accesorio 4
+            </div>
+
+            <!-- Color del producto -->
+            <div class="form-group">
+                <label for="productColor">Color del Producto:</label>
+                <input type="color" class="form-control" id="productColor" name="productColor" value="#ff0000">
+            </div>
+
+            <!-- Correo electrónico del usuario -->
+            <div class="form-group">
+                <label for="userEmail">Correo Electrónico:</label>
+                <input type="email" class="form-control" id="userEmail" name="userEmail"
+                    placeholder="usuario@correo.com">
+            </div>
+
+            <!-- Precio del producto -->
+            <div class="form-group">
+                <label for="productPrice">Precio del Producto (€):</label>
+                <input type="range" class="form-control" id="productPrice" name="productPrice" min="10" max="100"
+                    value="50">
+                <span id="priceValue">50€</span> <!-- Aquí se mostrará el valor -->
+            </div>
+
+            <!-- Teléfono de contacto -->
+            <div class="form-group">
+                <label for="contactPhone">Teléfono de Contacto:</label>
+                <input type="tel" class="form-control" id="contactPhone" name="contactPhone" value="123455567">
+            </div>
+
+            <!-- Fecha máxima de devolución -->
+            <div class="form-group">
+                <label for="returnDate">Fecha Máxima de Devolución:</label>
+                <input type="week" class="form-control" id="returnDate" name="returnDate">
+            </div>
+
+            <!-- Botones de acción -->
+            <button type="button" class="btn btn-warning" onclick="resetForm()">Reiniciar</button>
+            <button type="button" class="btn btn-secondary" onclick="toggleAccessories()">Seleccionar/Deseleccionar
+                Todos los Accesorios</button>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+
+        <!-- Div para mostrar los datos -->
+        <div id="formData" class="mt-4"></div>
+    </div>
+
+    <script src="01envioProducto.js"></script>
+</body>
+
+</html>

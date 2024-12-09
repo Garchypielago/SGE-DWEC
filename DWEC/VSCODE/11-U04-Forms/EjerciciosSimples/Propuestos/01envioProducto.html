@@ -12,25 +12,24 @@
 <body>
     <div class="container mt-5">
         <h2>Formulario de Envío a Tienda</h2>
-        <form id="productForm" onsubmit="return handleSubmit()">
+        <form id="productForm">
             <!-- Identificador del producto -->
             <div class="form-group">
                 <label for="productId">Identificador del Producto (1000-2000):</label>
                 <input type="number" class="form-control" id="productId" name="productId" min="1000" max="2000"
-                    placeholder="1500">
+                    value="1500">
             </div>
 
             <!-- Nombre del producto -->
             <div class="form-group">
                 <label for="productName">Nombre del Producto:</label>
-                <input type="text" class="form-control" id="productName" name="productName" placeholder="Nombre">
+                <input type="text" class="form-control" id="productName" name="productName" value="Nombre">
             </div>
 
             <!-- Descripción del producto -->
             <div class="form-group">
                 <label for="productDescription">Descripción del Producto:</label>
-                <textarea class="form-control" id="productDescription" name="productDescription" rows="4"
-                    placeholder="Descripción del producto aquí.."></textarea>
+                <textarea class="form-control" id="productDescription" name="productDescription" rows="4">Descripción del producto aquí...</textarea>
             </div>
 
             <!-- Clave secreta -->
@@ -42,7 +41,7 @@
             <!-- Fecha del envío -->
             <div class="form-group">
                 <label for="shippingDate">Fecha de Envío:</label>
-                <input type="date" class="form-control" id="shippingDate" name="shippingDate">
+                <input type="date" class="form-control" id="shippingDate" name="shippingDate" value="01/01/2001">
             </div>
 
             <!-- Categoría del producto -->
@@ -89,7 +88,7 @@
             <div class="form-group">
                 <label for="userEmail">Correo Electrónico:</label>
                 <input type="email" class="form-control" id="userEmail" name="userEmail"
-                    placeholder="usuario@correo.com">
+                    value="usuario@correo.com">
             </div>
 
             <!-- Precio del producto -->
@@ -113,10 +112,10 @@
             </div>
 
             <!-- Botones de acción -->
-            <button type="button" class="btn btn-warning" onclick="resetForm()">Reiniciar</button>
-            <button type="button" class="btn btn-secondary" onclick="toggleAccessories()">Seleccionar/Deseleccionar
+            <button type="button" class="btn btn-warning" id="reset">Reiniciar</button>
+            <button type="button" class="btn btn-secondary" id="all">Seleccionar/Deseleccionar
                 Todos los Accesorios</button>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="button" class="btn btn-primary" id="enviar">Enviar</button>
         </form>
 
         <!-- Div para mostrar los datos -->

@@ -1,0 +1,13 @@
+div {
+  border: 1px black solid;
+  margin: 5px;
+}
+
+.ejercicio5 {
+  width: 150px;
+  background-color: blue;
+  color: yellow;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 3px;
+}

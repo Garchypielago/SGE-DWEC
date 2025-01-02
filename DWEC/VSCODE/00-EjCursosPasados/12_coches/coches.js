@@ -34,25 +34,47 @@ function dibujarTabla() {
 }
 
 
-// A partir de los dos objetos de formulario (selección y texto) se va a reescribir la tabla del ejercicio 1 con los coches que cumplen
-// uno, o los dos, criterios de búsqueda.
+// A partir de los dos objetos de formulario (selección y texto) se va a reescribir la tabla del ejercicio 1 con los coches que cumplen uno, o los dos, criterios de búsqueda.
 // • La búsqueda por marca de coche se realiza al elegir una de ellas
 // • Labúsqueda por matrícula se hace al ir introduciendo caracteres en el campo de texto. Se buscan matrículas que contengan
 // la cadena escrita en cualquier posición de la matrícula.
-const marcaSel = document.getElementsByName("marca");
-console.log(marcaSel.valule);
-document.getElementsByName("marca").addEventListener("", elegirPorMarca(marcaSel.valule));
-function elegirPorMarca(marca) {
-    let listaMarca = listatabla.find(x => x["marca"].includes(marca));
-    dibujarTabla(listaMarca);
+const marcaSel = document.querySelector('select[name="marca"]');
+marcaSel.addEventListener("change", elegirPorMarca);
+let listaMarca = listatabla;
+function elegirPorMarca(event) {
+    const selectedValue = event.target.value;
+    console.log(selectedValue)
+    if(selectedValue == ""){
+        listaMarca = listatabla;
+    } else {
+        listaMarca = [];
+        listatabla.forEach(element =>{
+            if (element["marca"].toLowerCase().includes(selectedValue))
+                listaMarca.push(element);
+        })
+    }
+    // dibujarTabla(listaMarca);
+    // console.log(listaMarca)
 }
 
 
 // En este apartado se quiere que, al pasar el ratón por las filas de la tabla, la fila cambie de color de fondo. Al pasar a otra fila,
 // vuelve a su color inicial.
+const matriculaInput = document.getElementById("matr");
+matriculaInput.addEventListener("keyup", elegirPorMarca);
+let listaMartricula = listaMarca;
 function elegirPorMatricula(matricula) {
-    let listaMartricula = listaMarca.find(x=> x["marca"].includes(matricula));
-    dibujarTabla(listaMartricula);
+    if(matricula.em){
+        listaMarca = listatabla;
+    } else {
+        listaMarca = [];
+        listatabla.forEach(element =>{
+            if (element["marca"].toLowerCase().includes(selectedValue))
+                listaMarca.push(element);
+        })
+    }
+    console.log(listaMartricula)
+    // dibujarTabla(listaMartricula);
 }
 
 

@@ -8,11 +8,13 @@ table {
 .listado {
   background-color: rgba(71, 186, 240, 0.904);
   color: white;
+  border: 10px dotted rgba(228, 6, 35, 0);
 }
 
 .puntos {
   border: 10px dotted rgb(228, 6, 35);
 }
+
 
 .boleto {
   font-size: 1.1em;

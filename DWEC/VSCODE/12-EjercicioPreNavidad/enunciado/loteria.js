@@ -9,7 +9,7 @@ const cleanerBtn = document.getElementById('cleaner');
 const winPrice = document.getElementsByName('premio');
 const typeprice = document.getElementById('tipopremio');
 const numbers = Array.from(document.getElementsByClassName('numero'));
-const price = document.getElementById('importe');
+const WinPrice = document.getElementById('importe');
 const places = document.getElementById('provincias');
 
 
@@ -56,7 +56,7 @@ function resetListeners() {
     });
 
     quintosBtn.addEventListener("click", showQuintos);
-    // searchNum.addEventListener("keyup", search);
+    searchNum.addEventListener("keyup", searchList);
     // searchLast.addEventListener("change", filterSearch);
 }
 
@@ -116,10 +116,12 @@ function rotar() {
         list.forEach(element => {
             if (element.nodeName == "TABLE")
                 element.classList.add("puntos");
+                element.classList.remove("puntosHidden");
         });
     } else {
         list.forEach(element => {
             if (element.nodeName == "TABLE")
+                element.classList.add("puntosHidden");
                 element.classList.remove("puntos");
         });
     }
@@ -138,25 +140,25 @@ function showPrice() {
         return;
     }
     if (checkValue == 1) {
-        printPrice(listapremios.find(x => x["premio"] == 400000));
+        printPrice(listapremios.find(x => x["premio"] == 400000), "Primer");
         return;
     }
     if (checkValue == 2) {
-        printPrice(listapremios.find(x => x["premio"] == 125000));
+        printPrice(listapremios.find(x => x["premio"] == 125000), "Segundo");
         return;
     }
     if (checkValue == 3) {
-        printPrice(listapremios.find(x => x["premio"] == 50000));
+        printPrice(listapremios.find(x => x["premio"] == 50000), "Tercer");
         return;
     }
 }
-function printPrice(price) {
-    typeprice.innerHTML = "Primer premio";
+function printPrice(price, texto) {
+    typeprice.innerHTML = texto + " premio";
     for (let i = 0; i < numbers.length; i++) {
-        numbers[i].innerHTML = premio["numero"][i];
+        numbers[i].innerHTML = price["numero"][i];
     };
-    price.innerHTML = premio["premio"] + "€";
-    places.innerHTML = premio["provincia"];
+    WinPrice.innerHTML = price["premio"] + "€";
+    places.innerHTML = price["provincia"];
 }
 
 // listadoQuintos
@@ -170,6 +172,25 @@ function showQuintos() {
     }
 }
 
+function searchList() {
+    const lista = [];
+
+    listapremios.forEach(price => {
+    if (price["numero"] == searchNum.value){
+        lista.push(price);
+        if (pricesList.style.visibility == "visible"){
+            pricesList.removeChild(lista.firstChild);
+            pricesList.style.visibility = "hidden";
+        } else {
+            pricesList.style.visibility = "visible";
+            pricesList.appendChild(showTable(lista));
+        }
+    } else {
+
+    }
+})
+    
+}
 
 
 /* Inicio de la página */

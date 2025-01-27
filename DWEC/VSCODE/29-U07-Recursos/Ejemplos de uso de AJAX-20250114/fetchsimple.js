@@ -13,7 +13,6 @@ function fajax(parametro) {
         .catch(error => {
             console.log("Error")
             console.log(error)
-
         });
 
 }

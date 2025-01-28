@@ -34,54 +34,26 @@ Además hay que añadir la clase circle
 // lista de opciones
 const cities = ["Granada", "Valencia", "Madrid", "Toledo"];
 
-
-
 // 1 Array de circulosdata
 circle_data = JSON.parse(circle_data);
 // 1 ~
 
+// 2 Dibujar grafica
 document.addEventListener("DOMContentLoaded", () => {
   createObjectDOMList(circle_data);
   createSelect();
 });
 
-// 2
 const div_grafica = document.getElementById('grafica');
 const div_cityname = document.getElementById('cityname');
 const div_citystats = document.getElementById('citystats');
 
-function createObjectDOMList(list) {  
-  div_grafica.innerHTML="";
+function createObjectDOMList(list) {
+  div_grafica.innerHTML = "";
 
-  Array.from(list).forEach(circle =>{
+  Array.from(list).forEach(circle => {
     crearObjetoDOM(circle);
   });
-}
-
-function clickCircle() {
-  // this es el objeto que invoca el evento, obj en la función crearObjetoDOM
-  div_citystats.innerHTML="";
-  div_citystats.appendChild(createText(this.info.cod));
-  div_citystats.appendChild(createText(this.info.valor));
-  div_citystats.appendChild(createText(this.info.incremento));
-
-}
-
-function overCircle() {
-  // this es el objeto que invoca el evento, obj en la función crearObjetoDOM
-  div_cityname.appendChild(createText(this.info.label));
-}
-function leaveCircle() {
-  div_cityname.innerHTML="";
-}
-
-function createText(text){
-  const newText = document.createElement("div");
-
-  newText.classList.add("info");
-  newText.textContent=text;
-
-  return newText;
 }
 
 function crearObjetoDOM(circle) {
@@ -105,18 +77,41 @@ function crearObjetoDOM(circle) {
 
   div_grafica.appendChild(newCircle);
 }
-
 //  2 ~
 
-function filtreProvincias(provincia){
-  let list = Array.from(circle_data)
-  createObjectDOMList(list.filter(ele => {
-    return ele.label.equalsIgnoreCase(provincia);
-  }));
+// 3 Asignar eventos
+function clickCircle() {
+  // this es el objeto que invoca el evento, obj en la función crearObjetoDOM
+  div_citystats.innerHTML = "";
+  div_citystats.appendChild(createText(this.info.cod));
+  div_citystats.appendChild(createText(this.info.valor));
+  div_citystats.appendChild(createText(this.info.incremento));
+
 }
 
-// 4 TODO borrar info bloque tras cambiar
+function overCircle() {
+  div_cityname.appendChild(createText(this.info.label));
+}
+function leaveCircle() {
+  div_cityname.innerHTML = "";
+}
+
+function createText(text) {
+  const newText = document.createElement("div");
+
+  newText.classList.add("info");
+  newText.textContent = text;
+
+  return newText;
+}
+
+// 3 ~
+
+// 4 Filtro
 const select_scities = document.getElementById('scities');
+let option_scities = select_scities.value;
+
+select_scities.addEventListener("change", changeGraphics);
 
 function createSelect() {
   const newOption = document.createElement("option");
@@ -131,5 +126,23 @@ function createSelect() {
 
     select_scities.appendChild(newOption);
   });
+}
+
+function changeGraphics() {
+  option_scities = select_scities.value;
+  if (option_scities == "")
+    createObjectDOMList(circle_data);
+  else
+    filtreProvincias(option_scities);
+
+  div_citystats.innerHTML = "";
+}
+
+function filtreProvincias(provincia) {
+  let list = Array.from(circle_data)
+  createObjectDOMList(list.filter(ele => {
+    1
+    return ele.label == provincia;
+  }));
 }
 // 4 ~

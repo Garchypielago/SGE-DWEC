@@ -8,41 +8,57 @@ const provinciasList = document.getElementById('provinciasList');
 btnCcaa.addEventListener("click", createListCCAA);
 
 function createListCCAA(){
-    ccaaList.removeChild;
+    ccaaList.innerHTML="";
+    provinciasList.innerHTML="";
 
     const newList = document.createElement("ol");
     newList.classList.add("listado");
 
     ccaaListado.forEach(ccaa =>{
-        newList.appendChild(createLi(ccaa));
+        newList.appendChild(createLiCCAA(ccaa));
     })
 
     ccaaList.appendChild(newList);
     ccaaContainer.style.visibility = "visible";
 }
 
-function createLi(ccaa){
+function createLiCCAA(ccaa){
     const newElementList = document.createElement("li");
     const newP = document.createElement("span");
     newP.classList.add("provincia");
     newP.textContent=ccaa[0];
-    newP.va
-    newP.addEventListener("click", createListProvincias);
+    newP.addEventListener("click", () => createListProvincias(ccaa));
     newElementList.appendChild(newP);
     return newElementList;
 }
 
-async function createListProvincias(){
-    ccaaListado
+async function createListProvincias(ccaa){
+    provinciasList.innerHTML="";
 
-    leeFicheroCSV(url, inicio)
+    if (ccaa[2]==""){
+        const new_p = document.createElement("p");
+        new_p.textContent = "No hay datos para esta CCAA."
+        provinciasList.appendChild(new_p);
+        return;
+    }
+
+    leeFicheroCSV(ccaa[2], false);
 
     const newList = document.createElement("ol");
-    newList.classList.add("listado");
+    // newList.classList.add("listado");
 
-    ccaaListado.forEach(ccaa =>{
-        newList.appendChild(createLi(ccaa));
+    provinciasListado.forEach(provincia =>{
+        newList.appendChild(createLiPro(provincia));
     })
 
     provinciasList.appendChild(newList);
+}
+
+function createLiPro(pro){
+    const newElementList = document.createElement("li");
+    const newP = document.createElement("span");
+    newP.classList.add("provincia");
+    newP.textContent=pro[0];
+    newElementList.appendChild(newP);
+    return newElementList;
 }

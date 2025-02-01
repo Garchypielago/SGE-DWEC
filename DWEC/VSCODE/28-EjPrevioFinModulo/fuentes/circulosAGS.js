@@ -83,9 +83,9 @@ function crearObjetoDOM(circle) {
 function clickCircle() {
   // this es el objeto que invoca el evento, obj en la función crearObjetoDOM
   div_citystats.innerHTML = "";
-  div_citystats.appendChild(createText(this.info.cod));
-  div_citystats.appendChild(createText(this.info.valor));
-  div_citystats.appendChild(createText(this.info.incremento));
+  div_citystats.appendChild(createText("Codigo", this.info.cod));
+  div_citystats.appendChild(createText("Valor", this.info.valor));
+  div_citystats.appendChild(createText("Incremento", this.info.incremento));
 
 }
 
@@ -96,11 +96,11 @@ function leaveCircle() {
   div_cityname.innerHTML = "";
 }
 
-function createText(text) {
+function createText(title, text) {
   const newText = document.createElement("div");
 
   newText.classList.add("info");
-  newText.textContent = text;
+  newText.textContent = title + ": "+ text;
 
   return newText;
 }
@@ -141,7 +141,6 @@ function changeGraphics() {
 function filtreProvincias(provincia) {
   let list = Array.from(circle_data)
   createObjectDOMList(list.filter(ele => {
-    1
     return ele.label == provincia;
   }));
 }

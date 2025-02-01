@@ -37,6 +37,7 @@ async function leeFicheroCSV(url, inicio) {
                 });
                 console.log(ccaaListado)
             } else {
+                provinciasListado = [];
                 lecturaDatos.split("\n").forEach((line, index) => {
                     if (index == 0)
                         return;

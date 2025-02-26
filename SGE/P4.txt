@@ -1,0 +1,31 @@
+alumno@linuxserver2324:~/practica04/balanceo$ docker run -p 8088:80 --name apache01 --network ha_network -v ./apache
+01:/usr/local/apache2/htdocs -d httpd:2.4
+32f975f0dc863e1b94b4a9884423e3a435f737c25ee4cb5cd855f8738f647083
+alumno@linuxserver2324:~/practica04/balanceo$ docker run -p 8089:80 --name apache02 --network ha_network -v ./apache
+02:/usr/local/apache2/htdocs -d httpd:2.4
+290bd13d7962017c864b3d9954ec85273d2d91a04bcd41aea3095bc848131b3a
+alumno@linuxserver2324:~/practica04/balanceo$ cd apache01
+alumno@linuxserver2324:~/practica04/balanceo/apache01$ ls -l
+total 4
+-rwxrwx--- 1 alumno alumno 126 feb 21 15:31 index.html
+alumno@linuxserver2324:~/practica04/balanceo/apache01$ cd .
+alumno@linuxserver2324:~/practica04/balanceo/apache01$ cd /
+alumno@linuxserver2324:/$ cd /home/alumno/practica04/balanceo
+alumno@linuxserver2324:~/practica04/balanceo$ chmod -R 777 ./*
+alumno@linuxserver2324:~/practica04/balanceo$ cd apache01
+alumno@linuxserver2324:~/practica04/balanceo/apache01$ ls -l
+total 4
+-rwxrwxrwx 1 alumno alumno 126 feb 21 15:31 index.html
+alumno@linuxserver2324:~/practica04/balanceo/apache01$ cd ..
+alumno@linuxserver2324:~/practica04/balanceo$ docker run -p 8080:80 --name hapx --network ha_network -v ./haproxy:/usr/local/etc/haproxy -e APACHE_1_IP=apache01 -e APACHE_2_IP=apache02 -e APACHE_EXPOSED_PORT=80 -d haproxy
+Unable to find image 'haproxy:latest' locally
+latest: Pulling from library/haproxy
+c29f5b76f736: Already exists 
+37d0456b023d: Pull complete 
+c88428f4b0bb: Pull complete 
+9c534f24c3ca: Pull complete 
+97db456d1ed7: Pull complete 
+4f4fb700ef54: Pull complete 
+Digest: sha256:578cbd7816ad13a650e2d6fd5973245be35c730e0f4c2d7dc1a15d156147f5e8
+Status: Downloaded newer image for haproxy:latest
+3a6a5745abe2ecea342c757b6a69f41d8d94fb049ba46a484b25d0bfc156dba9

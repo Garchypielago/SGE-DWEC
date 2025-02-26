@@ -1,0 +1,138 @@
+🐳 Docker Cheat Sheet 
+
+📦 Gestión de Contenedores
+--------------------------
+docker ps 					→ Lista los contenedores en ejecución
+docker ps -a 					→ Lista todos los contenedores (incluyendo detenidos)
+docker run -d --name mi_contenedor imagen 	→ Crea y ejecuta un contenedor en segundo plano
+docker start mi_contenedor 			→ Inicia un contenedor detenido
+docker stop mi_contenedor 			→ Detiene un contenedor en ejecución
+docker restart mi_contenedor 			→ Reinicia un contenedor
+docker rm mi_contenedor 			→ Elimina un contenedor detenido
+docker logs -f mi_contenedor 			→ Muestra logs del contenedor en tiempo real
+docker exec -it mi_contenedor bash 		→ Accede a la terminal del contenedor
+docker attach mi_contenedor 			→ Adjunta la terminal del host al contenedor
+
+
+📦 Gestión de Imágenes
+--------------------------
+docker images 					→ Lista las imágenes descargadas
+docker pull imagen 				→ Descarga una imagen de Docker Hub
+docker build -t mi_imagen . 			→ Construye una imagen desde un Dockerfile
+docker rmi mi_imagen 				→ Borra una imagen
+docker tag mi_imagen usuario/mi_imagen:v1 	→ Etiqueta una imagen
+docker push usuario/mi_imagen:v1 		→ Sube una imagen a Docker Hub
+
+
+📦 Gestión de Volúmenes y Redes
+--------------------------
+docker volume create mi_volumen 		→ Crea un volumen
+docker volume ls 				→ Lista los volúmenes
+docker volume rm mi_volumen 			→ Elimina un volumen
+docker network ls 				→ Lista las redes disponibles
+docker network create mi_red 			→ Crea una red personalizada
+docker network connect mi_red mi_contenedor 	→ Conecta un contenedor a una red
+
+
+📦 Docker Compose
+--------------------------
+docker-compose up -d 				→ Inicia los contenedores en segundo plano
+docker-compose down 				→ Detiene y elimina los contenedores
+docker-compose ps 				→ Lista los contenedores de Docker Compose
+docker-compose logs -f 				→ Muestra los logs de todos los servicios
+
+
+🧹 Limpieza y Mantenimiento
+--------------------------
+docker system prune -a 				→ Elimina contenedores, imágenes y volúmenes no usados
+docker container prune 				→ Borra todos los contenedores detenidos
+docker image prune 				→ Borra imágenes sin usar
+docker volume prune 				→ Borra volúmenes no usados
+
+
+
+
+🐳 Docker Cheat Sheet - Comandos esenciales y avanzados
+
+📦 Gestión de Contenedores
+--------------------------
+docker ps					Lista los contenedores en ejecución
+docker ps -a					Lista todos los contenedores, incluso los detenidos
+docker run -d --name mi_contenedor imagen	Crea y ejecuta un contenedor en segundo plano
+docker run --rm imagen				Ejecuta un contenedor y lo elimina al detenerse
+docker start mi_contenedor			Inicia un contenedor detenido
+docker stop mi_contenedor			Detiene un contenedor en ejecución
+docker restart mi_contenedor			Reinicia un contenedor
+docker kill mi_contenedor			Mata un contenedor inmediatamente
+docker pause mi_contenedor			Pausa un contenedor en ejecución
+docker unpause mi_contenedor			Reanuda un contenedor pausado
+docker rm mi_contenedor				Elimina un contenedor detenido
+docker inspect mi_contenedor			Muestra información detallada del contenedor
+docker logs -f mi_contenedor			Muestra logs en tiempo real del contenedor
+docker top mi_contenedor			Muestra los procesos en ejecución dentro del contenedor
+docker stats mi_contenedor			Muestra estadísticas en tiempo real de uso de recursos
+docker diff mi_contenedor			Muestra los cambios en el sistema de archivos del contenedor
+docker exec -it mi_contenedor bash		Abre una terminal interactiva dentro del contenedor
+docker attach mi_contenedor			Conecta la terminal del host al contenedor
+
+📦 Gestión de Imágenes
+--------------------------
+docker images					Lista todas las imágenes descargadas
+docker pull imagen				Descarga una imagen de Docker Hub
+docker build -t mi_imagen .			Construye una imagen desde un Dockerfile
+docker build --no-cache -t mi_imagen .		Construye una imagen sin usar caché
+docker rmi mi_imagen				Borra una imagen
+docker tag mi_imagen usuario/mi_imagen:v1	Etiqueta una imagen
+docker push usuario/mi_imagen:v1		Sube una imagen a Docker Hub
+docker history mi_imagen			Muestra el historial de una imagen
+docker save -o mi_imagen.tar mi_imagen		Guarda una imagen en un archivo .tar
+docker load -i mi_imagen.tar			Carga una imagen desde un archivo .tar
+
+
+🔗 Gestión de Redes
+--------------------------
+docker network ls				Lista todas las redes disponibles
+docker network create mi_red			Crea una red personalizada
+docker network inspect mi_red			Muestra detalles de una red
+docker network connect mi_red mi_contenedor	Conecta un contenedor a una red
+docker network disconnect mi_red mi_contenedor	Desconecta un contenedor de una red
+docker network rm mi_red			Elimina una red
+
+💾 Gestión de Volúmenes
+--------------------------
+docker volume create mi_volumen			Crea un volumen
+docker volume ls				Lista los volúmenes disponibles
+docker volume inspect mi_volumen		Muestra información sobre un volumen
+docker volume rm mi_volumen			Elimina un volumen
+docker volume prune				Elimina todos los volúmenes sin usar
+
+⚙️ Docker Compose
+--------------------------
+docker-compose up -d				Inicia los contenedores en segundo plano
+docker-compose down				Detiene y elimina los contenedores y redes
+docker-compose ps				Lista los contenedores de docker-compose
+docker-compose logs -f				Muestra logs en tiempo real
+docker-compose exec servicio bash		Abre una terminal dentro de un contenedor de docker-compose
+docker-compose restart				Reinicia todos los servicios
+
+🧹 Limpieza y Mantenimiento
+--------------------------
+docker system prune -a				Elimina contenedores, imágenes y volúmenes no usados
+docker container prune				Borra todos los contenedores detenidos
+docker image prune				Borra imágenes sin usar
+docker volume prune				Borra volúmenes sin usar
+docker logs -f --tail 100 mi_contenedor		Muestra los últimos 100 logs del contenedor
+
+🔥 Modo Avanzado - Debugging y Monitorización
+--------------------------
+docker inspect --format='{{.State.Pid}}' mi_contenedor				Muestra el PID del contenedor en el host
+nsenter -t $(docker inspect --format='{{.State.Pid}}' mi_contenedor) -n ip a	Muestra las interfaces de red del contenedor
+docker cp mi_contenedor:/ruta/dentro/archivo.txt .				Copia un archivo desde un contenedor al host
+docker cp archivo.txt mi_contenedor:/ruta/dentro/				Copia un archivo del host a un contenedor
+
+
+
+
+
+
+

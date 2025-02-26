@@ -1,0 +1,97 @@
+#encabezado {
+  width: 900px;
+  background-color: rgb(235, 193, 197);
+}
+#lienzo {
+  background-color: rgb(238, 213, 230);
+  width: 900px;
+}
+
+h1 {
+  text-align: center;
+}
+
+table {
+  font-size: 1.1em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 5px;
+}
+
+td {
+  width: 150px;
+  text-align: center;
+}
+
+.title {
+  font-size: 1.2em;
+}
+.celda {
+  background-color: rgb(238, 140, 186);
+}
+
+#selectinfo {
+  font-size: 1em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.btnpage {
+  width: 80px;
+  margin: auto;
+  padding: 10px;
+  background-color: rgb(126, 3, 24);
+  color: rgb(247, 231, 239);
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1em;
+}
+
+/* Aquí empiezan las clases a utilizar en código */
+
+.fondoRanking {
+  width: 850px;
+  margin-top: 20px;
+  margin-left: 15px;
+  padding: 10px;
+  background-color: rgb(240, 133, 151);
+}
+
+.player {
+  margin: 5px;
+  background-color: rgb(255, 240, 249);
+  display: flex;
+  gap: 10px;
+}
+
+.playerName {
+  width: 200px;
+  padding-left: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1em;
+  color: rgb(58, 6, 14);
+  margin-right: 10px;
+}
+
+.playerStat {
+  background-color: rgb(65, 27, 52);
+  height: 20px;
+  color: rgb(199, 160, 163);
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 0.8em;
+  padding-top: 2px;
+}
+
+.matchStat {
+  background-color: rgb(87, 6, 37);
+  color: rgb(238, 213, 230);
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.1em;
+  width: 100px;
+}
+
+/* Modos inactivos */
+
+.inputdisabled {
+  background-color: lightgray;
+}

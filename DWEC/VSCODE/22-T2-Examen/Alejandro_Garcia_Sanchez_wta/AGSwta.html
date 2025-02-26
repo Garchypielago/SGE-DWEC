@@ -1,0 +1,105 @@
+<!-- Alejandro García Sánchez -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ranking WTA 2025</title>
+    <link rel="stylesheet" href="wta.css" />
+  </head>
+  <body>
+    <div id="encabezado">
+      <h1>WTA: Resultados y clasificación</h1>
+      <table>
+        <tr>
+          <td colspan="6"><hr /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="4" class="celda title">¿Qué información quieres ver?</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="4" style="text-align: center">
+            <select style="width: 300px" id="selectinfo">
+              <option value="rank">Ranking de jugadoras por puntos</option>
+              <option value="matches">Partidos jugados por jornadas</option>
+            </select>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td colspan="6"><hr /></td>
+        </tr>
+        <tr>
+          <td colspan="6" class="celda title">Ranking de jugadoras</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="4" class="celda">Modo de ordenación</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            Por puntos
+            <span>&nbsp;&nbsp;</span>
+            <input type="radio" name="viewmode" id="pointmode" value="pts" />
+          </td>
+          <td colspan="2">
+            Por victorias<span>&nbsp;&nbsp;</span>
+            <input type="radio" name="viewmode" id="winmode" value="win" />
+          </td>
+          <td colspan="2">
+            Por orden alfabético<span>&nbsp;&nbsp;</span>
+            <input type="radio" name="viewmode" id="alphamode" value="name" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="6"><hr /></td>
+        </tr>
+        <tr>
+          <td colspan="6" class="celda title">Partidos jugados</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="2" ="celda">Busca tu jugadora favorita</td>
+          <td colspan="2" style="text-align: left">
+            <input
+              type="text"
+              placeholder="Escribe un nombre"
+              size="40"
+              id="playername"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="4" class="celda title">Por orden cronológico</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <div class="btnpage">Página 1</div>
+          </td>
+          <td>
+            <div class="btnpage">Página 2</div>
+          </td>
+          <td>
+            <div class="btnpage">Página 3</div>
+          </td>
+          <td>
+            <div class="btnpage">Página 4</div>
+          </td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+    <div id="lienzo"></div>
+
+    <script src="data/ranking_tenistas_female.js"></script>
+    <script src="data/tennis_matches_female.js"></script>
+    <script src="AGSwta.js"></script>
+  </body>
+</html>

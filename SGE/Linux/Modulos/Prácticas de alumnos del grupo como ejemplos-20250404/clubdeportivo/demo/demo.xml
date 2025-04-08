@@ -1,0 +1,67 @@
+<odoo>
+    <data>
+<!--
+          <record id="object0" model="clubdeportivo.clubdeportivo">
+            <field name="name">Object 0</field>
+            <field name="value">0</field>
+          </record>
+
+          <record id="object1" model="clubdeportivo.clubdeportivo">
+            <field name="name">Object 1</field>
+            <field name="value">10</field>
+          </record>
+
+          <record id="object2" model="clubdeportivo.clubdeportivo">
+            <field name="name">Object 2</field>
+            <field name="value">20</field>
+          </record>
+
+          <record id="object3" model="clubdeportivo.clubdeportivo">
+            <field name="name">Object 3</field>
+            <field name="value">30</field>
+          </record>
+
+          <record id="object4" model="clubdeportivo.clubdeportivo">
+            <field name="name">Object 4</field>
+            <field name="value">40</field>
+          </record>
+-->
+      <record id="alumno1" model="clubdeportivo.alumno">
+        <field name="nombre">Pepe</field>
+        <field name="apellidos">Benitez</field>
+        <field name="fechaAlta">2020-04-17</field>
+      </record>
+      <record id="alumno2" model="clubdeportivo.alumno">
+        <field name="nombre">Ramon</field>
+        <field name="apellidos">Garcia</field>
+        <field name="fechaAlta">2022-04-17</field>
+      </record><record id="alumno3" model="clubdeportivo.alumno">
+        <field name="nombre">Miguel</field>
+        <field name="apellidos">Alvarez</field>
+        <field name="fechaAlta">2020-10-17</field>
+      </record>
+
+      <record id="profesor1" model="clubdeportivo.profesor">
+        <field name="nombre">Luis</field>
+        <field name="apellidos">Perez</field>
+        <field name="fechaAlta">2019-06-10</field>
+      </record>
+
+      <record id="grupo1" model="clubdeportivo.grupo">
+        <field name="deporte">f</field>
+        <field name="nHoras">5</field>
+        <field name="precioHora">10.5</field>
+        <field name="cerrado">True</field>
+        <field name="profesor_id" ref="profesor1"/>
+        <field name="alumno_ids" eval="[(6, 0,[ref('alumno1')])]"/>
+      </record>
+      <record id="grupo2" model="clubdeportivo.grupo">
+        <field name="deporte">b</field>
+        <field name="nHoras">3</field>
+        <field name="precioHora">8</field>
+        <field name="cerrado">True</field>
+        <field name="profesor_id" ref="profesor1"/>
+        <field name="alumno_ids" eval="[(6, 0,[ref('alumno2'), ref('alumno3')])]"/>
+      </record>
+    </data>
+</odoo>

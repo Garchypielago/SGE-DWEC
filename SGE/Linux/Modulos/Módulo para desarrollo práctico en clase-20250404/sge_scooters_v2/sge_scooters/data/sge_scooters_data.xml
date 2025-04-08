@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    
+<record id="fabricante01" model="sge_scooters.fabricante">
+<field name="name">Xiaomi</field>
+<field name="pais">USA</field>
+</record>
+
+<record id="ebike01" model="sge_scooters.ebike">
+    <field name="name">Xiaomi 001</field>
+    <field name="peso">10</field>
+    <field name="tipo">ci</field>
+    <field name="precio">1.5</field>
+    <field name="fabbike_id" ref="fabricante01" />
+</record>
+
+<record id="ebike02" model="sge_scooters.ebike">
+    <field name="name">Xiaomi 002</field>
+    <field name="peso">6</field>
+    <field name="tipo">ca</field>
+    <field name="precio">0.75</field>
+    <field name="motor">False</field>
+    <field name="fabbike_id" ref="fabricante01" />
+</record>
+    
+<record id="scooter01" model="sge_scooters.scooter">
+    <field name="name">Scooter 01</field>
+    <field name="peso">7</field>
+    <field name="potencia">baja</field>
+    <field name="precio_hora">2.5</field>
+    <field name="fabscooter_id" ref="fabricante01" />
+</record>
+
+
+</data>
+</odoo>
+
+
+

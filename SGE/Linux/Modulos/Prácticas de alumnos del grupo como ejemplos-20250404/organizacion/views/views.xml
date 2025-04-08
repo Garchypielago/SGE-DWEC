@@ -1,0 +1,82 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="organizacion.estadiotree">
+      <field name="name">organizacion.estadio.tree</field>
+      <field name="model">organizacion.estadio</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="capacity"/>
+          <field name="isActive"/>
+          <field name="dateOfBuild"/>
+          <field name="direccion"/>
+        </tree>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="organizacion.equipotree">
+      <field name="name">organizacion.equipo.tree</field>
+      <field name="model">organizacion.equipo</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="capacity"/>
+          <field name="budget"/>
+          <field name="equipacion"/>
+          <field name="disciplina"/>
+          <field name="categoria"/>
+        </tree>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="organizacion.estadioform">
+      <field name="name">organizacion.estadio.form</field>
+      <field name="model">organizacion.estadio</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="capacity"/>
+              <field name="isActive"/>
+              <field name="dateOfBuild"/>
+              <field name="direccion"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="organizacion.equipoform">
+      <field name="name">organizacion.equipo.form</field>
+      <field name="model">organizacion.equipo</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="capacity"/>
+              <field name="budget"/>
+              <field name="equipacion"/>
+              <field name="disciplina"/>
+              <field name="categoria"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="organizacion.estadioactionwindow">
+      <field name="name">Estadio</field>
+      <field name="res_model">organizacion.estadio</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="organizacion.equipoactionwindow">
+      <field name="name">Equipo</field>
+      <field name="res_model">organizacion.equipo</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <!-- Top menu item -->
+    <menuitem name="Organizaciones Deportivas" id="organizacion.menu_root"/>
+    <menuitem name="Estadios" id="organizacion.estadiomenu" parent="organizacion.menu_root" action="organizacion.estadioactionwindow"/>
+    <menuitem name="Equipos" id="organizacion.equipomenu" parent="organizacion.menu_root" action="organizacion.equipoactionwindow"/>
+  </data>
+</odoo>

@@ -1,0 +1,77 @@
+<odoo>
+  <data>
+
+    <!-- Vistas del modelo kleenex.paquete -->
+    <record model="ir.ui.view" id="kleenex.paquete_list_view">
+      <field name="name">kleenex.paquete.view.tree</field>
+      <field name="model">kleenex.paquete</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="num_pannuelos"/>
+          <field name="color"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="kleenex.paquete_form_view">
+      <field name="name">kleenex.paquete.view.form</field>
+      <field name="model">kleenex.paquete</field>
+      <field name="arch" type="xml">
+        <form string="Paquete de Kleenex">
+          <sheet>
+            <field name="name"/>
+            <field name="num_pannuelos"/>
+            <field name="color"/>
+            <field name="tamanno"/>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- Acciones de las vistas de paquetes -->
+
+    <record model="ir.actions.act_window" id="kleenex.paquete_action_window">
+      <field name="name">Paquete de kleenex</field>
+      <field name="res_model">kleenex.paquete</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="kleenex.action_server">
+      <field name="name">kleenex server</field>
+      <field name="model_id" ref="model_kleenex_kleenex"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item: Se sitúa en el menú de productos de Ventas -->
+<!--
+    <menuitem name="kleenex" id="kleenex.menu_root"/>
+-->
+
+    <!-- menu categories -->
+    <menuitem name="Kleenex" id="kleenex.paquete_menu" parent="sale.product_menu_catalog" action="kleenex.paquete_action_window"/>
+<!--
+    <menuitem name="Menu 2" id="kleenex.menu_2" parent="kleenex.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="Kleenex" id="kleenex.paquete" parent="kleenex.menu_1"
+              action="kleenex.action_window"/>
+-->
+<!--
+    <menuitem name="Server to list" id="kleenex" parent="kleenex.menu_2"
+              action="kleenex.action_server"/>
+-->
+  </data>
+</odoo>

@@ -1,0 +1,32 @@
+<odoo>
+    <data>
+      <record id="estadio1" model="organizacion.estadio">
+        <field name="name">Primer Estadio</field>
+        <field name="capacity">500</field>
+        <field name="direccion">Calle Estrella 15</field>
+        <field name="isActive">False</field>
+        <field name="dateOfBuild">2006-03-10</field>
+      </record>
+      <record id="estadio2" model="organizacion.estadio">
+          <field name="name">Segundo Estadio</field>
+          <field name="capacity">2500</field>
+          <field name="direccion">Calle Padre Claret 8</field>
+          <field name="isActive">True</field>
+          <field name="dateOfBuild">2012-07-11</field>
+      </record>
+      <record id="disciplina1" model="organizacion.disciplina">
+          <field name="name">Futbol</field>
+      </record>
+      <record id="categoria1" model="organizacion.categoria">
+          <field name="name">Cadete</field>
+      </record>
+      <record id="equipo1" model="organizacion.equipo">
+          <field name="name">Futbol</field>
+          <field name="capacity">21</field>
+          <field name="budget">500.50</field>
+          <field name="equipacion">r</field>
+          <field name="disciplina" ref="disciplina1" />
+          <field name="categoria" ref="categoria1" />
+      </record>
+    </data>
+</odoo>

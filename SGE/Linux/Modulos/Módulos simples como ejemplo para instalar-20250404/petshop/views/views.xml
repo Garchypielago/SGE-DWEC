@@ -1,0 +1,119 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="petshop.list">
+      <field name="name">petshop list</field>
+      <field name="model">petshop.petshop</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <record model="ir.ui.view" id="petshop.pets_view_list">
+      <field name="name">petshop.pets.view.list</field>
+      <field name="model">petshop.pets</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="raza"/>
+          <field name="peso"/>
+        </tree>
+      </field>
+    </record>
+
+  <record model="ir.ui.view" id="petshop.pets_view_form">
+      <field name="name">petshop.pets.view.form</field>
+      <field name="model">petshop.pets</field>
+      <field name="arch" type="xml">
+        <form string="Formulario de mascotas">
+          <sheet>
+            <field name="name" />
+            <field name="raza" />
+            <field name="peso" />
+            <field name="edad" />
+          </sheet>
+        </form>
+      </field>
+  </record>
+
+  <record model="ir.ui.view" id="petshop.owner_view_list">
+    <field name="name">petshop.owner.view.list</field>
+    <field name="model">petshop.owner</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="addr"/>
+      </tree>
+    </field>
+  </record>
+
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="petshop.action_window">
+      <field name="name">petshop window</field>
+      <field name="res_model">petshop.petshop</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <record model="ir.actions.act_window" id="petshop.pets_action_window">
+      <field name="name">Mascotas</field>
+      <field name="res_model">petshop.pets</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="petshop.owner_action_window">
+      <field name="name">Dueños</field>
+      <field name="res_model">petshop.owner</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="petshop.action_server">
+      <field name="name">petshop server</field>
+      <field name="model_id" ref="model_petshop_petshop"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+    <menuitem name="Tienda de mascotas" id="petshop.menu_root"/>
+
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="petshop.menu_1" parent="petshop.menu_root"/>
+    <menuitem name="Menu 2" id="petshop.menu_2" parent="petshop.menu_root"/>
+-->
+
+    <menuitem name="Mascotas" id="petshop.menu_pets" parent="petshop.menu_root" 
+      action="petshop.pets_action_window" />
+    <menuitem name="Dueño" id="petshop.menu_owner" parent="petshop.menu_root"
+      action="petshop.owner_action_window" />
+
+
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="petshop.menu_1_list" parent="petshop.menu_1"
+              action="petshop.action_window"/>
+    <menuitem name="Server to list" id="petshop" parent="petshop.menu_2"
+              action="petshop.action_server"/>
+-->
+  </data>
+</odoo>

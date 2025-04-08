@@ -1,0 +1,70 @@
+<odoo>
+    <data>
+          <record id="object1" model="tienda_alimentos.tienda">
+            <field name="name">Mercadona</field>
+            <field name="dir">calle preciados, 15</field>
+            <field name="tel">123456789</field>
+            <field name="email">mercadona@gmail.com</field>
+          </record> 
+          <record id="object2" model="tienda_alimentos.inventario">
+            <field name="name">lubina</field>
+            <field name="tipo">p</field>
+            <field name="cantidad">1000</field>
+            <field name="tienda_id" ref="object1"/>
+          </record> 
+
+          
+
+          <record id="object4" model="tienda_alimentos.comprador">
+            <field name="name">ultramarinos Paqui</field>
+            <field name="email">xxpaquixx@gmail.com</field>
+            <field name="tel">987654321</field>
+            <field name="tienda_id" ref="object1"/>
+          </record> 
+          <record id="object3" model="tienda_alimentos.venta">
+            <field name="name">pedido001</field>
+            <field name="total">30.0</field>
+            <field name="fecha">2022-01-16</field>
+            <field name="tienda_id" ref="object1"/>
+            <field name="comprador_id" ref="object4"/>
+          </record>
+    <!--    <record model="tienda_alimentos.tienda" id="test_tienda">
+          <field name="name">Test tienda</field>
+          <field name="dir">Test dirección</field>
+          <field name="tel">123456</field>
+          <field name="email">test@example.com</field>
+          <field name="abierta" eval="True"/>
+          <field name="inventario_ids">
+            <record model="tienda_alimentos.inventario" id="test_inventario_1">
+              <field name="name">Test inventario 1</field>
+              <field name="tipo">f</field>
+              <field name="cantidad" eval="10"/>
+              <field name="tienda_id" ref="test_tienda"/>
+            </record>
+            <record model="tienda_alimentos.inventario" id="test_inventario_2">
+              <field name="name">Test inventario 2</field>
+              <field name="tipo">c</field>
+              <field name="cantidad" eval="20"/>
+              <field name="tienda_id" ref="test_tienda"/>
+            </record>
+          </field>
+          <field name="ventas_ids">
+            <record model="tienda_alimentos.venta" id="test_venta_1">
+              <field name="name">Test venta 1</field>
+              <field name="total" eval="50.0"/>
+              <field name="fecha">2022-12-16</field>
+              <field name="tienda_id" ref="test_tienda"/>
+              <field name="comprador_id" ref="test_comprador_1"/>
+            </record>
+           </field>
+          <field name="comprador_ids">
+            <record model="tienda_alimentos.comprador" id="test_comprador_1">
+              <field name="name">Test comprador 1</field>
+              <field name="email">test1@example.com</field>
+              <field name="tel">987654</field>
+              <field name="tienda_id" ref="test_tienda"/>
+            </record>
+          </field>
+        </record>  --> 
+    </data>
+</odoo>

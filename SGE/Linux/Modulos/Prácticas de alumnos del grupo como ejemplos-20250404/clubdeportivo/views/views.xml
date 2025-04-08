@@ -1,0 +1,216 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="clubdeportivo.list">
+      <field name="name">clubdeportivo list</field>
+      <field name="model">clubdeportivo.clubdeportivo</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="clubdeportivo.action_window">
+      <field name="name">clubdeportivo window</field>
+      <field name="res_model">clubdeportivo.clubdeportivo</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="clubdeportivo.action_server">
+      <field name="name">clubdeportivo server</field>
+      <field name="model_id" ref="model_clubdeportivo_clubdeportivo"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="clubdeportivo" id="clubdeportivo.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="clubdeportivo.menu_1" parent="clubdeportivo.menu_root"/>
+    <menuitem name="Menu 2" id="clubdeportivo.menu_2" parent="clubdeportivo.menu_root"/>
+-->
+      <!-- actions -->
+  <!--
+      <menuitem name="List" id="clubdeportivo.menu_1_list" parent="clubdeportivo.menu_1"
+                action="clubdeportivo.action_window"/>
+      <menuitem name="Server to list" id="clubdeportivo" parent="clubdeportivo.menu_2"
+                action="clubdeportivo.action_server"/>
+  -->
+
+  <!--VISTAS DE GRUPO-->
+    <record model="ir.ui.view" id="clubdeportivo.grupo_list_view">
+      <field name="name">clubdeportivo.grupo.view.tree</field>
+      <field name="model">clubdeportivo.grupo</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="deporte"/>
+          <field name="nHoras"/>
+          <field name="precioHora"/>
+          <field name="pagoTotal"/>
+          <field name="cerrado"/>
+        </tree>
+      </field>
+    </record> 
+
+    <record model="ir.ui.view" id="clubdeportivo.grupo_form_view">
+      <field name="name">clubdeportivo.grupo.view.form</field>
+      <field name="model">clubdeportivo.grupo</field>
+      <field name="arch" type="xml">
+        <form string="Grupo">
+          <sheet>
+            <h1>
+              Grupo 
+            </h1>
+            <group>
+              <group>
+                <field name="profesor_id"/>
+                <field name="deporte"/>
+                <field name="nHoras"/>
+              </group>
+              <group>
+                <field name="precioHora"/>
+                <field name="pagoTotal"/>
+                <field name="cerrado"/>
+              </group>
+            </group>
+            <separator string="Alumnos del grupo"/>
+            <field name="alumno_ids"/>
+          </sheet>
+        </form>
+      </field>
+    </record> 
+  <!--VISTAS DE ALUMNO-->
+    <record model="ir.ui.view" id="clubdeportivo.alumno_list_view">
+      <field name="name">clubdeportivo.alumno.view.tree</field>
+      <field name="model">clubdeportivo.alumno</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="apellidos"/>
+          <field name="fechaAlta"/>
+          <field name="aniosClub"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="clubdeportivo.alumno_form_view">
+      <field name="name">clubdeportivo.alumno.view.form</field>
+      <field name="model">clubdeportivo.alumno</field>
+      <field name="arch" type="xml">
+        <form string="Alumno">
+          <sheet>
+            <h1>
+              Alumno
+            </h1>
+            <group>
+              <group>
+                <field name="nombre"/>
+                <field name="apellidos"/>
+              </group>
+              <group>
+                <field name="fechaAlta"/>
+                <field name="aniosClub"/>
+              </group>
+            </group>
+            <separator string="Grupos"/>
+            <field name="grupo_ids"/>
+          </sheet>
+        </form>
+      </field>
+    </record>
+  <!--VISTAS DE PROFESOR-->
+    <record model="ir.ui.view" id="clubdeportivo.profesor_list_view">
+      <field name="name">clubdeportivo.profesor.view.tree</field>
+      <field name="model">clubdeportivo.profesor</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre"/>
+          <field name="apellidos"/>
+          <field name="fechaAlta"/>
+          <field name="pagoMensual"/>
+          <field name="aniosClub"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="clubdeportivo.profesor_form_view">
+      <field name="name">clubdeportivo.profesor.view.form</field>
+      <field name="model">clubdeportivo.profesor</field>
+      <field name="arch" type="xml">
+        <form string="Profesor">
+          <sheet>
+            <h1>
+              Profesor 
+            </h1>
+            <group>
+              <group>
+                <field name="nombre"/>
+                <field name="apellidos"/>
+              </group>
+              <group>
+                <field name="fechaAlta"/>
+                <field name="aniosClub"/>
+                <field name="pagoMensual"/>
+              </group>
+            </group>
+            <separator string="Grupos"/>
+            <field name="grupo_ids"/>
+          </sheet>
+        </form>
+      </field>
+    </record>
+  <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="clubdeportivo.grupo_action_window">
+        <field name="name">Grupos</field>
+      <field name="res_model">clubdeportivo.grupo</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="clubdeportivo.alumno_action_window">
+        <field name="name">Alumnos</field>
+      <field name="res_model">clubdeportivo.alumno</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="clubdeportivo.profesor_action_window">
+        <field name="name">Profesores</field>
+      <field name="res_model">clubdeportivo.profesor</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    
+<!--DEFINICION DE MENUS-->
+<!-- Top menu item -->
+
+    <menuitem name="Club Deportivo" id="clubdeportivo.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Grupos" id="clubdeportivo.grupopadre_menu" parent="clubdeportivo.menu_root" action=""/>
+    <menuitem name="Grupos"  id="clubdeportivo.grupo_menu" parent="clubdeportivo.grupopadre_menu" action="clubdeportivo.grupo_action_window"/>
+    <menuitem name="Alumnos" id="clubdeportivo.alumno_menu" parent="clubdeportivo.grupopadre_menu" action="clubdeportivo.alumno_action_window"/>
+    <menuitem name="Profesores" id="clubdeportivo.profesor_menu" parent="clubdeportivo.grupopadre_menu" action="clubdeportivo.profesor_action_window"/>
+
+  </data>
+</odoo>

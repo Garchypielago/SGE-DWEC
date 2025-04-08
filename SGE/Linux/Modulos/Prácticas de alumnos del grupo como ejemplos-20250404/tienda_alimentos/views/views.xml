@@ -1,0 +1,241 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="tienda_final.list">
+      <field name="name">tienda_final list</field>
+      <field name="model">tienda_final.tienda_final</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="tienda_final.action_window">
+      <field name="name">tienda_final window</field>
+      <field name="res_model">tienda_final.tienda_final</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="tienda_final.action_server">
+      <field name="name">tienda_final server</field>
+      <field name="model_id" ref="model_tienda_final_tienda_final"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="tienda_final" id="tienda_final.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="tienda_final.menu_1" parent="tienda_final.menu_root"/>
+    <menuitem name="Menu 2" id="tienda_final.menu_2" parent="tienda_final.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="tienda_final.menu_1_list" parent="tienda_final.menu_1"
+              action="tienda_final.action_window"/>
+    <menuitem name="Server to list" id="tienda_final" parent="tienda_final.menu_2"
+              action="tienda_final.action_server"/>
+-->
+    <!-- VISTAS DE LA TIENDA -->
+  
+     <record model="ir.ui.view" id="tienda_alimentos.tienda_list">
+      <field name="name">tienda_alimentos.tienda.view.tree</field>
+      <field name="model">tienda_alimentos.tienda</field>
+      <field name="arch" type="xml">
+        <tree>
+         <field name="name"/>
+          <field name="dir"/>
+          <field name="tel"/>
+          <field name="email"/>
+          <field name="abierta"/>  
+        </tree>
+      </field>
+    </record>
+    
+    <record model="ir.ui.view" id="tienda_alimentos.tienda_form">
+        <field name="name">tienda_alimentos.tienda.view.form</field>
+        <field name="model">tienda_alimentos.tienda</field>
+        <field name="arch" type="xml">
+          <form string="Formulario de tienda">
+            <sheet>
+              <div class="oe_title">
+                <h1>
+                  <field name="name" placeholder="Tienda"/>
+                </h1>
+              </div>
+                <group>
+                  <group>
+                      <field name="dir"/>
+                      <field name="tel"/>
+                      <field name="email"/>
+                      <field name="abierta"/> 
+                  </group>
+                </group>
+
+                  <group>
+                      <field name="inventario_ids"/>
+                      <field name="ventas_ids"/>
+                      <field name="comprador_ids"/>  
+                  </group>
+            </sheet>
+          </form>
+        </field>
+    </record>
+    
+
+    <record model="ir.ui.view" id="tienda_alimentos.inventario_list">
+      <field name="name">tienda_alimentos.inventario.view.tree</field>
+      <field name="model">tienda_alimentos.inventario</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="tipo"/>
+            <field name="cantidad"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="tienda_alimentos.inventario_form">
+        <field name="name">tienda_alimentos.inventario.view.form</field>
+        <field name="model">tienda_alimentos.inventario</field>
+        <field name="arch" type="xml">
+          <form string="Información del inventario">
+            <sheet>
+                <group>
+                  <group>
+                      <field name="name"/>
+                      <field name="tipo"/>
+                      <field name="cantidad"/>
+                  </group>
+                  <group>
+                      <field name="tienda_id"/>
+                  </group>
+                </group>
+            </sheet>
+          </form>
+        </field>
+    </record>
+    
+
+    <record model="ir.ui.view" id="tienda_alimentos.venta_list">
+      <field name="name">tienda_alimentos.venta.view.tree</field>
+      <field name="model">tienda_alimentos.venta</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="total"/>
+            <field name="fecha"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="tienda_alimentos.venta_form">
+        <field name="name">tienda_alimentos.venta.view.form</field>
+        <field name="model">tienda_alimentos.venta</field>
+        <field name="arch" type="xml">
+          <form string="Información del producto">
+            <sheet>
+                <group>
+                  <group>
+                      <field name="name"/>
+                      <field name="total"/>
+                      <field name="fecha"/>
+                  </group>
+                  <group>
+                      <field name="tienda_id"/>
+                      <field name="comprador_id"/>
+                  </group>
+                </group>
+            </sheet>
+          </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="tienda_alimentos.comprador_list">
+      <field name="name">tienda_alimentos.comprador.view.tree</field>
+      <field name="model">tienda_alimentos.comprador</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="email"/>
+            <field name="tel"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="tienda_alimentos.comprador_form">
+        <field name="name">tienda_alimentos.comprador.view.form</field>
+        <field name="model">tienda_alimentos.comprador</field>
+        <field name="arch" type="xml">
+          <form string="Información del producto">
+            <sheet>
+                <group>
+                  <group>
+                      <field name="name"/>
+                      <field name="email"/>
+                      <field name="tel"/>
+                  </group>
+                  <group>
+                      <field name="tienda_id"/> 
+                  </group>
+                </group>
+            </sheet>
+          </form>
+        </field>
+    </record>
+    
+    <!-- DEFINICION DE MENUS-->
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="tienda_alimentos.tienda_action_window">
+      <field name="name">Tienda</field>
+      <field name="res_model">tienda_alimentos.tienda</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="tienda_alimentos.inventario_action_window">
+      <field name="name">Inventario</field>
+      <field name="res_model">tienda_alimentos.inventario</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="tienda_alimentos.venta_action_window">
+      <field name="name">Venta</field>
+      <field name="res_model">tienda_alimentos.venta</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="tienda_alimentos.comprador_action_window">
+      <field name="name">Comprador</field>
+      <field name="res_model">tienda_alimentos.comprador</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <!-- Top menu item -->
+    <menuitem name="Tienda" id="tienda_alimentos.menu_root"/>
+    <!-- menu categories -->
+    <menuitem name="Tienda Alimentos" id="tienda_alimentos.tienda_menu" parent="tienda_alimentos.menu_root" action="tienda_alimentos.tienda_action_window"/>
+    <menuitem name="Inventario" id="tienda_alimentos.inventario_menu" parent="tienda_alimentos.menu_root" action="tienda_alimentos.inventario_action_window"/>
+    <menuitem name="Ventas" id="tienda_alimentos.venta_menu" parent="tienda_alimentos.menu_root" action="tienda_alimentos.venta_action_window"/>
+    <menuitem name="Compradores" id="tienda_alimentos.comprador_menu" parent="tienda_alimentos.menu_root" action="tienda_alimentos.comprador_action_window"/> 
+  </data>
+</odoo>

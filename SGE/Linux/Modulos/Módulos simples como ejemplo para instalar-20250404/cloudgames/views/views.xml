@@ -1,0 +1,113 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="cloudgames.list">
+      <field name="name">cloudgames list</field>
+      <field name="model">cloudgames.cloudgames</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+
+    <record model="ir.ui.view" id="cloudgames.videogame_view_list">
+      <field name="name">cloudgames.videogame.view.list</field>
+      <field name="model">cloudgames.videogame</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="tematica"/>
+          <field name="precio"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="cloudgames.videogame_view_form">
+      <field name="name">cloudgames.videogame.view.form</field>
+      <field name="model">cloudgames.videogame</field>
+      <field name="arch" type="xml">
+        <form string="Datos del videojuego">
+          <sheet>
+            <h1>
+                <field name="name"/>
+            </h1>
+                <separator string="Opciones del juego"/>
+            <group>
+            <group>
+                <field name="id"/>
+                <field name="multijugador"/>
+            </group>
+            <group>
+                <field name="tematica"/>
+                <field name="precio"/>
+            </group>
+            </group>
+
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="cloudgames.action_window">
+      <field name="name">cloudgames window</field>
+      <field name="res_model">cloudgames.cloudgames</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <record model="ir.actions.act_window" id="cloudgames.videogame_action_window">
+      <field name="name">Videogame</field>
+      <field name="res_model">cloudgames.videogame</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="cloudgames.action_server">
+      <field name="name">cloudgames server</field>
+      <field name="model_id" ref="model_cloudgames_cloudgames"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="cloudgames" id="cloudgames.menu_root"/>
+-->
+
+    <menuitem name="Juegos en la nube" id="cloudgames.menu_root"/>
+
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="cloudgames.menu_1" parent="cloudgames.menu_root"/>
+    <menuitem name="Menu 2" id="cloudgames.menu_2" parent="cloudgames.menu_root"/>
+-->
+
+    <menuitem name="Videojuegos" id="cloudgames.videogame_menu" parent="cloudgames.menu_root" action="cloudgames.videogame_action_window"/>
+    <menuitem name="Suscripciones" id="cloudgames.suscripciones_menu" parent="cloudgames.menu_root"/>
+
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="cloudgames.menu_1_list" parent="cloudgames.menu_1"
+              action="cloudgames.action_window"/>
+    <menuitem name="Server to list" id="cloudgames" parent="cloudgames.menu_2"
+              action="cloudgames.action_server"/>
+-->
+  </data>
+</odoo>

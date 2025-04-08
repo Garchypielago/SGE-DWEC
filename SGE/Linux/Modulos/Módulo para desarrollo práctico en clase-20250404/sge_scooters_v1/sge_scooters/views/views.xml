@@ -1,0 +1,186 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="sge_scooters.list">
+      <field name="name">sge_scooters list</field>
+      <field name="model">sge_scooters.sge_scooters</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+<record model="ir.ui.view" id="sge_scooters.fabricante_view_list">
+  <field name="name">sge_scooters.fabricante.view.list</field>
+  <field name="model">sge_scooters.fabricante</field>
+  <field name="arch" type="xml">
+    <tree>
+      <field name="name"/>
+      <field name="cif"/>
+      <field name="nscooters"/>
+      <field name="nbikes"/>
+    </tree>
+  </field>
+</record>
+
+<record model="ir.ui.view" id="sge_scooters.fabricante_view_form">
+  <field name="name">sge_scooters.fabricante.view.form</field>
+  <field name="model">sge_scooters.fabricante</field>
+  <field name="arch" type="xml">
+    <form string="Datos del fabricante">
+      <sheet>
+        <h1>
+          <field name="name"/>
+        </h1>        
+        <group>
+          <separator string="Marca de vehículos"></separator>
+          <group>
+            <field name="cif"/>
+            <field name="pais"/> 
+          </group> 
+          <group>
+            <field name="nscooters"/>
+            <field name="nbikes"/>
+          </group>                 
+        </group>     
+        <group>
+            <field name="scooters_ids"/>
+            <field name="bikes_ids"/>
+        </group>   
+      </sheet>      
+    </form>
+  </field>
+</record>
+
+<record model="ir.ui.view" id="sge_scooters.ebike_view_list">
+  <field name="name">sge_scooters.ebike.view.list</field>
+  <field name="model">sge_scooters.ebike</field>
+  <field name="arch" type="xml">
+    <tree>
+      <field name="name"/>
+      <field name="precio"/>
+    </tree>
+  </field>
+</record>
+
+<record model="ir.ui.view" id="sge_scooters.ebike_view_form">
+  <field name="name">sge_scooters.ebike.view.form</field>
+  <field name="model">sge_scooters.ebike</field>
+  <field name="arch" type="xml">
+    <form string="Datos de la bicicleta eléctrica">
+      <sheet>
+        <h1>
+          <field name="name"/>
+        </h1>        
+        <group>
+          <separator string="Información de la bicicleta eléctrica"></separator>
+          <group>
+            <field name="peso"/>
+            <field name="tipo"/> 
+          </group> 
+          <group>
+            <field name="precio"/>
+            <field name="motor"/>
+            <field name="fabricante_id"/>
+          </group>                 
+        </group>        
+      </sheet>      
+    </form>
+  </field>
+</record>
+
+<record model="ir.ui.view" id="sge_scooters.scooter_view_list"> 
+  <field name="name">sge_scooters.scooter.view.list</field> 
+  <field name="model">sge_scooters.scooter</field> 
+  <field name="arch" type="xml"> 
+    <tree> 
+      <field name="name"/>
+      <field name="precio_hora"/>
+    </tree>
+  </field>
+</record>
+
+<record model="ir.ui.view" id="sge_scooters.scooter_view_form"> 
+  <field name="name">sge_scooters.scooter.view.form</field> 
+  <field name="model">sge_scooters.scooter</field> 
+  <field name="arch" type="xml"> 
+    <form string="Registrar Scooters">
+      <sheet>
+          <div class="oe_title">
+            <h1>
+              <field name="name" placeholder="Inserte una Scooter"/>
+            </h1>
+          </div>
+          <group>
+            <group>
+              <field name="fabricante_id"/>
+              <field name="peso"/>
+              <field name="precio_hora"/>
+            </group>
+            <group>
+              <field name="potencia"/>
+              <field name="panel"/>
+            </group>
+          </group>
+      </sheet>
+    </form>
+  </field>
+</record>    
+
+
+<!-- Acciones de ventana -->
+
+<record model="ir.actions.act_window" id="sge_scooters.fabricante_action_window">
+  <field name="name">Fabricantes</field>
+  <field name="res_model">sge_scooters.fabricante</field>
+  <field name="view_mode">tree,form</field>
+</record>
+
+<record model="ir.actions.act_window" id="sge_scooters.ebike_action_window">
+  <field name="name">Bicicletas eléctricas</field>
+  <field name="res_model">sge_scooters.ebike</field>
+  <field name="view_mode">tree,form</field>
+</record>
+
+<record model="ir.actions.act_window" id="sge_scooters.scooter_action_window">
+  <field name="name">Scooters</field>
+  <field name="res_model">sge_scooters.scooter</field>
+  <field name="view_mode">tree,form</field>
+</record>
+
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="sge_scooters" id="sge_scooters.menu_root"/>
+-->
+
+<menuitem name="SGE Scooters Rent and Delivery" id="sge_scooters.menu_root"/>
+
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="sge_scooters.menu_1" parent="sge_scooters.menu_root"/>
+    <menuitem name="Menu 2" id="sge_scooters.menu_2" parent="sge_scooters.menu_root"/>
+-->
+
+<menuitem name="Vehiculos" id="sge_scooters.vehicles_menu" parent="sge_scooters.menu_root" />
+
+<menuitem name="Fabricantes" id="sge_scooters.fabricante_menu" parent="sge_scooters.vehicles_menu" action="sge_scooters.fabricante_action_window"/>
+
+<menuitem name="e Bikes" id="sge_scooters.ebike_menu" parent="sge_scooters.vehicles_menu" action="sge_scooters.ebike_action_window"/>
+
+<menuitem name="Scooters" id="sge_scooters.scooters_menu" parent="sge_scooters.vehicles_menu" action="sge_scooters.scooter_action_window"/>
+
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="sge_scooters.menu_1_list" parent="sge_scooters.menu_1"
+              action="sge_scooters.action_window"/>
+    <menuitem name="Server to list" id="sge_scooters" parent="sge_scooters.menu_2"
+              action="sge_scooters.action_server"/>
+-->
+  </data>
+</odoo>

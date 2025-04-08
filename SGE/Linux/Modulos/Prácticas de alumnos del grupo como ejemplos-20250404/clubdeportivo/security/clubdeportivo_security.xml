@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <!--Definimos categoria de seguridad para el modulo-->
+    <record model="ir.module.category" id="clubdeportivo.module_category_clubdeportivo">
+        <field name="name">Club Deportivo</field>
+        <field name="description">Ayuda a gestionar los grupos</field>
+        <field name="sequence">100</field>
+    </record>
+
+    <record model="res.groups" id="group_clubdeportivo_profesor">
+        <field name="name">Profesor</field>
+        <field name="category_id" ref="clubdeportivo.module_category_clubdeportivo"/>
+        <field name="comment">Profesor del club deportivo</field>
+    </record>
+
+    <record model="res.groups" id="group_clubdeportivo_administrador">
+        <field name="name">Administrador</field>
+        <field name="category_id" ref="clubdeportivo.module_category_clubdeportivo"/>
+        <field name="comment">Administrador que gestiona club deportivo</field>
+        <!--Los miembros del grupo administrador tambien son miembros del grupo usuario-->
+        <field name="implied_ids" eval="[(4, ref('group_clubdeportivo_profesor'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+</data>
+</odoo>

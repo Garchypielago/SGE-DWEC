@@ -1,0 +1,7 @@
+<odoo>
+    <menuitem id="menu_console_repair_root" name="Taller Consolas"/>
+    <menuitem id="menu_console_repair_management" name="Gestión" parent="menu_console_repair_root" sequence="10"/>
+    <menuitem id="menu_console_repair_orders" name="Órdenes" parent="menu_console_repair_management" action="action_console_repair_orders"/>
+    <menuitem id="menu_consoles" name="Consolas" parent="menu_console_repair_management" action="action_console_list"/>
+    <menuitem id="menu_service_types" name="Tipos de servicio" parent="menu_console_repair_root" action="action_service_type_list" sequence="20"/>
+</odoo>

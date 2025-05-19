@@ -1,0 +1,15 @@
+<odoo>
+  <record id="seq_type_repair_order" model="ir.sequence">
+    <field name="name">Orden de reparación de consola</field>
+    <field name="code">console.repair.order</field>
+  </record>
+
+<!-- corregido -->
+  <record id="seq_repair_order" model="ir.sequence">
+    <field name="name">Orden de reparación de consola</field>
+    <field name="code">console.repair.order</field>
+    <field name="prefix">RO-</field>
+    <field name="padding">4</field>
+  </record>
+
+</odoo>

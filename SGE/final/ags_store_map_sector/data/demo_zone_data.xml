@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="zone_hombre" model="store.map.zone">
+        <field name="name">Hombre</field>
+        <field name="zone_type">seccion</field>
+    </record>
+
+    <record id="zone_mujer" model="store.map.zone">
+        <field name="name">Mujer</field>
+        <field name="zone_type">seccion</field>
+    </record>
+
+    <record id="zone_verano" model="store.map.zone">
+        <field name="name">Verano</field>
+        <field name="zone_type">campania</field>
+    </record>
+
+    <record id="zone_ofertas" model="store.map.zone">
+        <field name="name">Ofertas</field>
+        <field name="zone_type">campania</field>
+    </record>
+
+    <record id="zone_camisas" model="store.map.zone">
+        <field name="name">Camisas</field>
+        <field name="zone_type">categoria</field>
+    </record>
+
+    <record id="zone_banadores" model="store.map.zone">
+        <field name="name">Bañadores</field>
+        <field name="zone_type">categoria</field>
+    </record>
+</odoo>

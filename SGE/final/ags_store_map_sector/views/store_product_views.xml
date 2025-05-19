@@ -1,0 +1,42 @@
+<odoo>
+    <record id="view_form_store_product" model="ir.ui.view">
+        <field name="name">store.product.form</field>
+        <field name="model">store.product</field>
+        <field name="arch" type="xml">
+            <form string="Producto">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="price"/>
+                        <field name="description"/>
+                    </group>
+                    <group>
+                        <field name="zone_seccion_id"/>
+                        <field name="zone_campania_ids" widget="many2many_tags"/>
+                        <field name="zone_categoria_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_store_product" model="ir.ui.view">
+        <field name="name">store.product.tree</field>
+        <field name="model">store.product</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="price"/>
+                <field name="zone_seccion_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_store_product" model="ir.actions.act_window">
+        <field name="name">Productos de Tienda</field>
+        <field name="res_model">store.product</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_store_product" name="Productos" parent="store_map_menu_root" sequence="30" action="action_store_product"/>
+</odoo>

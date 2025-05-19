@@ -1,0 +1,14 @@
+<odoo>
+  <record id="seq_type_repair_order" model="ir.sequence.type">
+    <field name="name">Orden de reparación de consola</field>
+    <field name="code">console.repair.order</field>
+  </record>
+
+  <record id="seq_repair_order" model="ir.sequence">
+    <field name="name">Orden de reparación de consola</field>
+    <field name="code">console.repair.order</field>
+    <field name="prefix">CRO/%(year)s/</field>
+    <field name="padding">4</field>
+    <field name="company_id" eval="False"/>
+  </record>
+</odoo>

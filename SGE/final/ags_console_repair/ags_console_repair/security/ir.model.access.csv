@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_console_user,access_console_user,model_console_repair_console,base.group_user,1,1,1,1
+access_service_type_user,access_service_type_user,model_console_repair_service_type,base.group_user,1,1,1,1
+access_repair_order_user,access_repair_order_user,model_console_repair_order,base.group_user,1,1,1,1

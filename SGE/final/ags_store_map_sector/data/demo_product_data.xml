@@ -1,0 +1,10 @@
+<odoo>
+    <record id="store_product_camisa" model="store.product">
+        <field name="name">Camisa Blanca Hombre</field>
+        <field name="price">39.99</field>
+        <field name="description">Camisa para hombre, sección verano</field>
+        <field name="zone_seccion_id" ref="zone_hombre"/>
+        <field name="zone_campania_ids" eval="[(6, 0, [ref('zone_verano')])]"/>
+        <field name="zone_categoria_ids" eval="[(6, 0, [ref('zone_camisas')])]"/>
+    </record>
+</odoo>

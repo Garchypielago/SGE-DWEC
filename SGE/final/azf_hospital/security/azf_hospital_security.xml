@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_azf_hospital_category" model="ir.module.category"> 
+        <field name="name">Hospital General Clara Campoamor</field>
+        <field name="description">Categoría para los grupos del Hospital General</field>
+    </record>
+
+    <record id="azf_hospital_group_gestores" model="res.groups">
+        <field name="name">Gestor</field>
+        <field name="category_id" ref="module_azf_hospital_category"/>
+        <field name="comment">Gestores del hospital</field>
+    </record>
+
+    <record id="azf_hospital_group_empleados" model="res.groups">
+        <field name="name">Empleado</field>
+        <field name="category_id" ref="module_azf_hospital_category"/>
+        <field name="comment">Empleados del hospital</field>
+    </record>
+
+    <record id="azf_hospital_group_clientes" model="res.groups">
+        <field name="name">Cliente</field>
+        <field name="category_id" ref="module_azf_hospital_category"/>
+        <field name="comment">Clientes del hospital</field>
+    </record>
+</odoo>

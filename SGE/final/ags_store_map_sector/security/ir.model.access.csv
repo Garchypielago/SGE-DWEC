@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_store_map,access_store_map,model_store_map,,1,1,1,1
+access_store_map_sector,access_store_map_sector,model_store_map_sector,,1,1,1,1
+access_store_map_zone,access_store_map_zone,model_store_map_zone,,1,1,1,1
+access_store_product,access_store_product,model_store_product,,1,1,1,1
+
+

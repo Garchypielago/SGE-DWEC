@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+        <record id="store_map_demo2" model="store.map">
+            <field name="name">Plano Tienda Principal</field>
+            <field name="image" type="base64" file="ags_store_map_sector/static/img/sample.png"/>
+        </record>
+
+        <record id="sector_demo_1" model="store.map.sector">
+            <field name="name">Mujer</field>
+            <field name="x">10</field>
+            <field name="y">15</field>
+            <field name="width">50</field>
+            <field name="height">30</field>
+            <field name="map_id" ref="store_map_demo2"/>
+        </record>
+
+        <record id="sector_demo_2" model="store.map.sector">
+            <field name="name">Hombre</field>
+            <field name="x">70</field>
+            <field name="y">20</field>
+            <field name="width">80</field>
+            <field name="height">60</field>
+            <field name="map_id" ref="store_map_demo2"/>
+        </record>
+
+        <record id="sector_demo_3" model="store.map.sector">
+            <field name="name">Niños</field>
+            <field name="x">20</field>
+            <field name="y">90</field>
+            <field name="width">40</field>
+            <field name="height">20</field>
+            <field name="map_id" ref="store_map_demo2"/>
+        </record>
+    </data>
+</odoo>

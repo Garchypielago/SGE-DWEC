@@ -1,0 +1,20 @@
+<odoo>
+  <!-- Menú raíz del taller -->
+  <menuitem id="menu_console_root"
+            name="Taller de Consolas"
+            sequence="10"/>
+
+  <!-- Consolas -->
+  <menuitem id="menu_console_list"
+            name="Consolas"
+            parent="menu_console_root"
+            action="action_console_list"
+            sequence="20"/>
+
+  <!-- Órdenes de reparación -->
+  <menuitem id="menu_console_repair_orders"
+            name="Órdenes de reparación"
+            parent="menu_console_root"
+            action="action_console_repair_orders"
+            sequence="30"/>
+</odoo>

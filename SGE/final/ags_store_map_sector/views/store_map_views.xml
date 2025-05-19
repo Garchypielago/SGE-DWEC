@@ -1,0 +1,48 @@
+<odoo>
+    <record id="view_form_store_map" model="ir.ui.view">
+        <field name="name">store.map.form</field>
+        <field name="model">store.map</field>
+        <field name="arch" type="xml">
+            <form string="Plano de Tienda">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="image" widget="image"/>
+                    </group>
+                    <notebook>
+                        <page string="Sectores">
+                            <field name="sector_ids">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="x"/>
+                                    <field name="y"/>
+                                    <field name="width"/>
+                                    <field name="height"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_store_map" model="ir.ui.view">
+        <field name="name">store.map.tree</field>
+        <field name="model">store.map</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_store_map" model="ir.actions.act_window">
+        <field name="name">Planos de Tienda</field>
+        <field name="res_model">store.map</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="store_map_menu_root" name="Plano de Tienda" sequence="10"/>
+    <menuitem id="store_map_menu_main" name="Planos" parent="store_map_menu_root" action="action_store_map"/>
+</odoo>

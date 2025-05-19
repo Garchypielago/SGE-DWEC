@@ -1,0 +1,39 @@
+<odoo>
+    <record id="view_tree_store_zone" model="ir.ui.view">
+        <field name="name">store.map.zone.tree</field>
+        <field name="model">store.map.zone</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="zone_type"/>
+                <field name="parent_id"/>
+                <field name="map_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_form_store_zone" model="ir.ui.view">
+        <field name="name">store.map.zone.form</field>
+        <field name="model">store.map.zone</field>
+        <field name="arch" type="xml">
+            <form string="Zona de tienda">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="zone_type"/>
+                        <field name="parent_id"/>
+                        <field name="map_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_store_zone" model="ir.actions.act_window">
+        <field name="name">Zonas de Tienda</field>
+        <field name="res_model">store.map.zone</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_store_zone" name="Zonas" parent="store_map_menu_root" sequence="20" action="action_store_zone"/>
+</odoo>

@@ -1,0 +1,92 @@
+<odoo>
+    <data>
+        <record id="especialidad01" model="azf_hospital.especialidad">
+            <field name="nombre">Alergología</field>
+            <field name="planta">3</field>
+            <field name="tipo">me</field>
+            <field name="descripcion">Diagnóstico y tratamiento de patologías producidas por mecanismos inmunológicos</field>
+        </record>
+
+        <record id="especialidad02" model="azf_hospital.especialidad">
+            <field name="nombre">Neurología</field>
+            <field name="planta">2</field>
+            <field name="tipo">mq</field>
+            <field name="descripcion">Estudio del sistema nervioso y de las enfermedades del cerebro, la médula, los nervios periféricos y los músculos</field>
+        </record>
+
+        <record id="paciente01" model="azf_hospital.paciente">
+            <field name="nombre">Marisa</field>
+            <field name="apellidos">Esteban Graciá</field>
+            <field name="cipa">9876543210</field>            
+            <field name="fecha_nacimiento">1994-11-04</field>
+            <field name="peso">45.5</field>
+            <field name="domicilio">Calle del Pez 5</field>
+            <field name="perfil" type="base64" file="/var/lib/odoo/modules/azf_hospital/static/images/paciente1.png"/>
+        </record>
+
+        <record id="paciente02" model="azf_hospital.paciente">
+            <field name="nombre">Ángel Manuel</field>
+            <field name="apellidos">Martín Fernández</field>
+            <field name="cipa">0123456789</field>            
+            <field name="fecha_nacimiento">1992-02-01</field>
+            <field name="peso">87.2</field>
+            <field name="domicilio">Calle de los Astros 5</field>
+            <field name="perfil" type="base64" file="/var/lib/odoo/modules/azf_hospital/static/images/paciente2.png"/>
+        </record>
+
+        <record id="paciente03" model="azf_hospital.paciente">
+            <field name="nombre">Eduardo</field>
+            <field name="apellidos">Keyholder</field>
+            <field name="cipa">7946132580</field>            
+            <field name="fecha_nacimiento">1972-05-11</field>
+            <field name="peso">77.25</field>
+            <field name="domicilio">Calle Serrano 21</field>
+            <field name="perfil" type="base64" file="/var/lib/odoo/modules/azf_hospital/static/images/paciente3.png"/>
+        </record>
+
+        <record id="medico01" model="azf_hospital.medico">
+            <field name="nombre">Juan</field>
+            <field name="apellidos">De la Cierva Rodríguez</field>
+            <field name="colegiado">135798462</field>
+            <field name="cargo">js</field>
+            <field name="cirujano">False</field>
+            <field name="perfil" type="base64" file="/var/lib/odoo/modules/azf_hospital/static/images/medico1.png"/>
+            <field name="especialidad_id" ref="especialidad01"/>
+            <field name="pacientes_ids" eval="[(6, 0,[ref('paciente01'), ref('paciente02')])]"/>
+        </record>
+
+        <record id="medico02" model="azf_hospital.medico">
+            <field name="nombre">Ángela</field>
+            <field name="apellidos">Del Rincón Hernández</field>
+            <field name="colegiado">795132468</field>
+            <field name="cargo">js</field>
+            <field name="cirujano">True</field>
+            <field name="perfil" type="base64" file="/var/lib/odoo/modules/azf_hospital/static/images/medico2.png"/>
+            <field name="especialidad_id" ref="especialidad02"/>
+            <field name="pacientes_ids" eval="[(6, 0,[ref('paciente01'), ref('paciente03')])]"/>
+        </record>
+
+        <record id="ingreso01" model="azf_hospital.ingreso">
+            <field name="fecha_ingreso">2024-04-27</field>
+            <field name="fecha_alta">2024-04-30</field>
+            <field name="planta">5</field>
+            <field name="cama">1</field>
+            <field name="paciente_id" ref="paciente02"/>
+        </record>
+
+        <record id="ingreso02" model="azf_hospital.ingreso">
+            <field name="fecha_ingreso">2024-04-30</field>            
+            <field name="planta">5</field>
+            <field name="cama">17</field>
+            <field name="paciente_id" ref="paciente02"/>
+        </record>
+
+        <record id="ingreso03" model="azf_hospital.ingreso">
+            <field name="fecha_ingreso">2024-04-17</field>
+            <field name="fecha_alta">2024-04-29</field>
+            <field name="planta">4</field>
+            <field name="cama">21</field>
+            <field name="paciente_id" ref="paciente03"/>
+        </record>
+    </data>
+</odoo>
